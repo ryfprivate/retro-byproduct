@@ -5,24 +5,32 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    public InputAction wasd;
+    public InputAction moveInput;
+    public InputAction aimInput;
     public Rigidbody2D rb;
     public Animator animator;
+    public Transform aimUI;
 
     public float moveSpeed = 5f;
 
     Vector2 movement;
+    Vector2 aim;
 
     void OnEnable() {
-        wasd.Enable();
+        moveInput.Enable();
+        aimInput.Enable();
     }
 
     void onDisable() {
-        wasd.Disable();
+        moveInput.Disable();
+        aimInput.Disable();
     }
     
     void Update() {
-        movement = wasd.ReadValue<Vector2>();
+        movement = moveInput.ReadValue<Vector2>();
+        aim = aimInput.ReadValue<Vector2>();
+        float angle = Vector3.SignedAngle(new Vector2(0, -1), aim, Vector3.forward);
+        aimUI.rotation = Quaternion.Euler(0, 0, angle);
 
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
