@@ -6,8 +6,11 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     public InputAction wasd;
-    public float moveSpeed = 5f;
     public Rigidbody2D rb;
+    public Animator animator;
+
+    public float moveSpeed = 5f;
+
     Vector2 movement;
 
     void OnEnable() {
@@ -20,13 +23,15 @@ public class Player : MonoBehaviour
     
     void Update() {
         movement = wasd.ReadValue<Vector2>();
-        Debug.Log(movement);
+
+        animator.SetFloat("Horizontal", movement.x);
+        animator.SetFloat("Vertical", movement.y);
+        animator.SetFloat("Speed", movement.sqrMagnitude);
     }
 
     void FixedUpdate()
     {
         // Movement
-        Debug.Log(movement);
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 }
