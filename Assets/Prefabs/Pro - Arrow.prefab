@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3561064506258334403}
   - component: {fileID: 3561064506258334402}
   - component: {fileID: 3561064506258334400}
+  - component: {fileID: 5268367225764717873}
   m_Layer: 0
   m_Name: Pro - Arrow
   m_TagString: Untagged
@@ -64,7 +65,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.00036546588, y: -0.0016443133}
@@ -80,6 +81,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.31583703, y: 0.5651909}
   m_EdgeRadius: 0
+--- !u!114 &5268367225764717873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3561064506258334413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fa16fa2d1d121a4c96f1fbc524d4cf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 4
 --- !u!1 &3561064506470133407
 GameObject:
   m_ObjectHideFlags: 0
