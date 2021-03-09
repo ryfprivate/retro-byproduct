@@ -24,7 +24,7 @@ public class @GameControls : IInputActionCollection, IDisposable
                     ""id"": ""390390b6-5b1e-4e31-9f21-1d43162f24f6"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""Movement"",
@@ -40,7 +40,7 @@ public class @GameControls : IInputActionCollection, IDisposable
                     ""id"": ""9e68095e-ff14-438d-85dd-88d9e205d336"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 }
             ],
             ""bindings"": [

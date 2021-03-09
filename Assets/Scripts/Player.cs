@@ -22,6 +22,16 @@ public class Player : MonoBehaviour
     public GameObject bulletPrefab;
 
     public float bulletForce = 20f;
+    public float reloadTime = 0.5f;
+
+    bool isShooting;
+    bool canShoot;
+
+    IEnumerator Reload()
+    {
+        yield return new WaitForSeconds(reloadTime);
+        canShoot = true;
+    }
 
     private void Awake()
     {
@@ -40,20 +50,45 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        controls.Player.Shoot.performed += _ => PlayerShoot();
+        controls.Player.Shoot.performed += _ => StartShooting();
+        controls.Player.Shoot.canceled += _ => StopShooting();
+        controls.Player.Aim.started += _ => StartAiming();
+
+        isShooting = false;
+        canShoot = true;
         Debug.Log("Game STart");
     }
 
-    void PlayerShoot()
+    void StartShooting()
     {
+        isShooting = true;
+        if (!canShoot) return;
+
         GameObject g = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation, bulletParent);
         g.SetActive(true);
+        canShoot = false;
+        StartCoroutine(Reload());
+    }
+
+    void StartAiming()
+    {
+        Debug.Log("aiming");
+    }
+
+    void StopShooting()
+    {
+        isShooting = false;
     }
 
     void Update()
     {
+        if (isShooting)
+        {
+            StartShooting();
+        }
         moveVector = controls.Player.Movement.ReadValue<Vector2>();
         aimVector = controls.Player.Aim.ReadValue<Vector2>();
+        // Debug.Log(aimVector);
         float angle = Vector3.SignedAngle(new Vector2(0, -1), aimVector, Vector3.forward);
         aimUI.rotation = Quaternion.Euler(0, 0, angle);
 
