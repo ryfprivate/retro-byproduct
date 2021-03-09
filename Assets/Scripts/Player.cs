@@ -64,6 +64,7 @@ public class Player : MonoBehaviour
         isShooting = true;
         if (!canShoot) return;
 
+        animator.SetTrigger("Shoot");
         GameObject g = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation, bulletParent);
         g.SetActive(true);
         canShoot = false;
