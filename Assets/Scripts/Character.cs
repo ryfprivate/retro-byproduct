@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    public SpriteRenderer sprite;
+
     private float health;
 
     void Start()
@@ -13,11 +15,16 @@ public class Character : MonoBehaviour
 
     void Update()
     {
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+        sprite.color = new Color(1f, 1f, 1f, health / 100);
         // Debug.LogFormat("health {0}", health.ToString());
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    void OnCollisionEnter2D(Collision2D col)
     {
-        Debug.Log("ouch");
+        health -= 10f;
     }
 }
