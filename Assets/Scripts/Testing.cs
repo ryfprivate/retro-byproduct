@@ -7,7 +7,7 @@ using CodeMonkey.Utils;
 public class Testing : MonoBehaviour
 {
     private GameControls controls;
-    Grid grid;
+    Grid<int> grid;
 
     private void Awake()
     {
@@ -30,14 +30,14 @@ public class Testing : MonoBehaviour
 
     void Start()
     {
-        grid = new Grid(30, 30, 1f, new Vector3(0, 0));
+        grid = new Grid<int>(30, 30, 1f, new Vector3(0, 0));
     }
 
     void HandleLeftClick(InputAction.CallbackContext ctx)
     {
         Vector2 screenPosition = Mouse.current.position.ReadValue();
         Vector2 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
-        grid.SetValue(worldPosition, 56);
+        grid.SetValue(worldPosition, 1);
     }
 
     void HandleRightClick(InputAction.CallbackContext ctx)
