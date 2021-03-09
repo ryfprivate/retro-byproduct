@@ -58,7 +58,6 @@ public class Player : MonoBehaviour
 
         isShooting = false;
         canShoot = true;
-        Debug.Log("Game STart");
     }
 
     void StartShooting()
