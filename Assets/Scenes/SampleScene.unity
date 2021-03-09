@@ -683,6 +683,68 @@ Transform:
   m_Father: {fileID: 1617114815}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1269466517
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 376003706781992102, guid: a3252881e80700b4b83e8c3ea5d80183, type: 3}
+      propertyPath: m_Name
+      value: Player (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 376003706781992103, guid: a3252881e80700b4b83e8c3ea5d80183, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 376003706781992103, guid: a3252881e80700b4b83e8c3ea5d80183, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 376003706781992103, guid: a3252881e80700b4b83e8c3ea5d80183, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 376003706781992103, guid: a3252881e80700b4b83e8c3ea5d80183, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 376003706781992103, guid: a3252881e80700b4b83e8c3ea5d80183, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 376003706781992103, guid: a3252881e80700b4b83e8c3ea5d80183, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 376003706781992103, guid: a3252881e80700b4b83e8c3ea5d80183, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 376003706781992103, guid: a3252881e80700b4b83e8c3ea5d80183, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 376003706781992103, guid: a3252881e80700b4b83e8c3ea5d80183, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 376003706781992103, guid: a3252881e80700b4b83e8c3ea5d80183, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 376003706781992103, guid: a3252881e80700b4b83e8c3ea5d80183, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5300048669462018562, guid: a3252881e80700b4b83e8c3ea5d80183, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 376003706781992104, guid: a3252881e80700b4b83e8c3ea5d80183, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: a3252881e80700b4b83e8c3ea5d80183, type: 3}
 --- !u!1 &1422161254
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,12 +754,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1422161255}
+  - component: {fileID: 1422161258}
   - component: {fileID: 1422161256}
   - component: {fileID: 1422161257}
   - component: {fileID: 1422161259}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -731,182 +794,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4fd9b5b9fd796f439bd33d014dcd2e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveInput:
-    m_Name: Move Input
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 391311ed-4b9d-44c4-9d7a-d2893f72a42f
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: Keyboard
-      m_Id: eda5115d-202c-4c2c-970c-48dc80516094
-      m_Path: 2DVector
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move Input
-      m_Flags: 4
-    - m_Name: up
-      m_Id: de69bed9-8d70-41e5-b378-859d33e4bb4f
-      m_Path: <Keyboard>/w
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move Input
-      m_Flags: 8
-    - m_Name: down
-      m_Id: 0345f2c6-066e-471c-8251-8bdc898aa532
-      m_Path: <Keyboard>/s
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move Input
-      m_Flags: 8
-    - m_Name: left
-      m_Id: b3b4173f-a4a0-43e9-8f50-584f6b2c6d99
-      m_Path: <Keyboard>/a
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move Input
-      m_Flags: 8
-    - m_Name: right
-      m_Id: 0db27434-0bb2-4422-be44-62b774d16909
-      m_Path: <Keyboard>/d
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move Input
-      m_Flags: 8
-    - m_Name: Controller
-      m_Id: 7f12ff4f-8c2d-44ef-8a9d-05c3511d1d3c
-      m_Path: 2DVector
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move Input
-      m_Flags: 4
-    - m_Name: up
-      m_Id: 87076627-a950-4892-8c78-0b36c4d66a92
-      m_Path: <Gamepad>/dpad/up
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move Input
-      m_Flags: 8
-    - m_Name: down
-      m_Id: 7012ebf8-9334-4d06-a422-8697078adc0e
-      m_Path: <Gamepad>/dpad/down
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move Input
-      m_Flags: 8
-    - m_Name: left
-      m_Id: 78101266-59c3-4ac2-ae3b-0f40593879c8
-      m_Path: <Gamepad>/dpad/left
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move Input
-      m_Flags: 8
-    - m_Name: right
-      m_Id: 7d60cf9d-c91c-47d7-bb9e-f5221c4d6c2a
-      m_Path: <Gamepad>/dpad/right
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move Input
-      m_Flags: 8
-  shootInput:
-    m_Name: Shoot Input
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 03a4ac6c-c0f4-41e5-a23d-e39d47048c37
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: Keyboard
-      m_Id: 45cd868e-08fd-490a-a0eb-1a93db56e7c6
-      m_Path: 2DVector
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Shoot Input
-      m_Flags: 4
-    - m_Name: up
-      m_Id: d91a47a3-0932-4851-bb8c-d8fee57249b3
-      m_Path: <Keyboard>/upArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Shoot Input
-      m_Flags: 8
-    - m_Name: down
-      m_Id: b18babac-a64d-4161-bf38-28dacdc7b896
-      m_Path: <Keyboard>/downArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Shoot Input
-      m_Flags: 8
-    - m_Name: left
-      m_Id: 7d07da67-c31f-4868-816e-5653a403b02e
-      m_Path: <Keyboard>/leftArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Shoot Input
-      m_Flags: 8
-    - m_Name: right
-      m_Id: 1e7d73c5-ae3b-4573-8977-2d2cd34c54af
-      m_Path: <Keyboard>/rightArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Shoot Input
-      m_Flags: 8
-    - m_Name: Controller
-      m_Id: a256980f-c3ba-49c0-8006-34af6b199586
-      m_Path: 2DVector
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Shoot Input
-      m_Flags: 4
-    - m_Name: up
-      m_Id: 7fc839db-a557-435d-a107-878a29a82092
-      m_Path: <Gamepad>/rightStick/up
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Shoot Input
-      m_Flags: 8
-    - m_Name: down
-      m_Id: 077084e8-0e75-4b3d-b5b0-0903527c9fa7
-      m_Path: <Gamepad>/rightStick/down
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Shoot Input
-      m_Flags: 8
-    - m_Name: left
-      m_Id: 4f489f9d-eed2-4ca3-a421-047648767da6
-      m_Path: <Gamepad>/rightStick/left
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Shoot Input
-      m_Flags: 8
-    - m_Name: right
-      m_Id: e43aa19e-6ae3-4978-94c2-15443ffb6bbe
-      m_Path: <Gamepad>/rightStick/right
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Shoot Input
-      m_Flags: 8
   rb: {fileID: 1422161257}
   animator: {fileID: 91396545}
   aimUI: {fileID: 1617114815}
@@ -915,6 +802,7 @@ MonoBehaviour:
   bulletParent: {fileID: 782926234}
   bulletPrefab: {fileID: 3561064506258334413, guid: d2c22f03f6a0eb64ab1b507be028fdd7, type: 3}
   bulletForce: 20
+  reloadTime: 1
 --- !u!50 &1422161257
 Rigidbody2D:
   serializedVersion: 4
@@ -936,6 +824,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1422161258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422161254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af72d33f0281f54c8f7055bf969001e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &1422161259
 BoxCollider2D:
   m_ObjectHideFlags: 0

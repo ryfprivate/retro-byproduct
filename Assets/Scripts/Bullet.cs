@@ -12,14 +12,13 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         transform.Translate(Vector3.down * speed * Time.deltaTime);
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        Destroy(gameObject);
     }
 }

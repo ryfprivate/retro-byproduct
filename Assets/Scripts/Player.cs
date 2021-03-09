@@ -52,7 +52,6 @@ public class Player : MonoBehaviour
     {
         controls.Player.Shoot.performed += _ => StartShooting();
         controls.Player.Shoot.canceled += _ => StopShooting();
-        controls.Player.Aim.started += _ => StartAiming();
 
         isShooting = false;
         canShoot = true;
@@ -66,14 +65,10 @@ public class Player : MonoBehaviour
 
         animator.SetTrigger("Shoot");
         GameObject g = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation, bulletParent);
+        Physics2D.IgnoreCollision(g.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         g.SetActive(true);
         canShoot = false;
         StartCoroutine(Reload());
-    }
-
-    void StartAiming()
-    {
-        Debug.Log("aiming");
     }
 
     void StopShooting()
