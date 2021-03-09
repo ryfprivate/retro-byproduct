@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    private GameControls controls;
+
     public InputAction moveInput;
     public InputAction shootInput;
 
@@ -19,20 +21,40 @@ public class Player : MonoBehaviour
 
     // Shooting
     public Transform firePoint;
+    public Transform bulletParent;
     public GameObject bulletPrefab;
 
     public float bulletForce = 20f;
 
+    private void Awake()
+    {
+        controls = new GameControls();
+    }
+
     void OnEnable()
     {
-        moveInput.Enable();
-        shootInput.Enable();
+        controls.Enable();
+
+        // moveInput.Enable();
+        // shootInput.Enable();
     }
 
     void onDisable()
     {
-        moveInput.Disable();
-        shootInput.Disable();
+        controls.Disable();
+        // moveInput.Disable();
+        // shootInput.Disable();
+    }
+
+    void Start()
+    {
+        controls.Player.Shoot.performed += _ => PlayerShoot();
+    }
+
+    void PlayerShoot()
+    {
+        GameObject g = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation, bulletParent);
+        g.SetActive(true);
     }
 
     void Update()

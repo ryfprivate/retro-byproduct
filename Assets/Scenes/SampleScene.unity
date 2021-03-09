@@ -347,6 +347,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &782926233
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 782926234}
+  m_Layer: 0
+  m_Name: Projectiles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &782926234
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782926233}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,12 +676,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216503035}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
-  m_Father: {fileID: 1422161255}
-  m_RootOrder: 3
+  m_Father: {fileID: 1617114815}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1422161254
 GameObject:
@@ -686,7 +716,6 @@ Transform:
   - {fileID: 1505839977}
   - {fileID: 91396544}
   - {fileID: 1617114815}
-  - {fileID: 1216503036}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -790,98 +819,102 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Move Input
       m_Flags: 8
-  aimInput:
-    m_Name: Aim Input
+  shootInput:
+    m_Name: Shoot Input
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 50b61c14-c682-48d2-82c6-01d509a26cc1
+    m_Id: 03a4ac6c-c0f4-41e5-a23d-e39d47048c37
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: Keyboard
-      m_Id: 070ef5cf-1b50-4ead-9b20-3f07244cd295
+      m_Id: 45cd868e-08fd-490a-a0eb-1a93db56e7c6
       m_Path: 2DVector
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Aim Input
+      m_Action: Shoot Input
       m_Flags: 4
     - m_Name: up
-      m_Id: 9c3cbcbf-c048-447b-9799-3f40988082af
+      m_Id: d91a47a3-0932-4851-bb8c-d8fee57249b3
       m_Path: <Keyboard>/upArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Aim Input
+      m_Action: Shoot Input
       m_Flags: 8
     - m_Name: down
-      m_Id: b590d8bb-0c36-4d42-a0a1-3f9c85c90d61
+      m_Id: b18babac-a64d-4161-bf38-28dacdc7b896
       m_Path: <Keyboard>/downArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Aim Input
+      m_Action: Shoot Input
       m_Flags: 8
     - m_Name: left
-      m_Id: a61093fa-4d9e-4685-bc49-0b5aa3ab7c74
+      m_Id: 7d07da67-c31f-4868-816e-5653a403b02e
       m_Path: <Keyboard>/leftArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Aim Input
+      m_Action: Shoot Input
       m_Flags: 8
     - m_Name: right
-      m_Id: 26e6fb72-9578-4eed-8d1e-b10edcb746cd
+      m_Id: 1e7d73c5-ae3b-4573-8977-2d2cd34c54af
       m_Path: <Keyboard>/rightArrow
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Aim Input
+      m_Action: Shoot Input
       m_Flags: 8
     - m_Name: Controller
-      m_Id: a1690fea-be2e-486c-92fa-785f3a6e9df4
+      m_Id: a256980f-c3ba-49c0-8006-34af6b199586
       m_Path: 2DVector
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Aim Input
+      m_Action: Shoot Input
       m_Flags: 4
     - m_Name: up
-      m_Id: 3f7e4739-ef3f-42da-90cd-f5252ed0f180
+      m_Id: 7fc839db-a557-435d-a107-878a29a82092
       m_Path: <Gamepad>/rightStick/up
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Aim Input
+      m_Action: Shoot Input
       m_Flags: 8
     - m_Name: down
-      m_Id: bf31ac23-c478-4962-994b-ebeefee98cd4
+      m_Id: 077084e8-0e75-4b3d-b5b0-0903527c9fa7
       m_Path: <Gamepad>/rightStick/down
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Aim Input
+      m_Action: Shoot Input
       m_Flags: 8
     - m_Name: left
-      m_Id: 8c1f1222-1a0b-4def-8b4e-3f676801020a
+      m_Id: 4f489f9d-eed2-4ca3-a421-047648767da6
       m_Path: <Gamepad>/rightStick/left
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Aim Input
+      m_Action: Shoot Input
       m_Flags: 8
     - m_Name: right
-      m_Id: 7e9c8530-e1be-4a5c-b5bd-e86e64ed7d54
+      m_Id: e43aa19e-6ae3-4978-94c2-15443ffb6bbe
       m_Path: <Gamepad>/rightStick/right
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Aim Input
+      m_Action: Shoot Input
       m_Flags: 8
   rb: {fileID: 1422161257}
   animator: {fileID: 91396545}
   aimUI: {fileID: 1617114815}
   moveSpeed: 5
+  firePoint: {fileID: 1216503036}
+  bulletParent: {fileID: 782926234}
+  bulletPrefab: {fileID: 3561064506258334413, guid: d2c22f03f6a0eb64ab1b507be028fdd7, type: 3}
+  bulletForce: 20
 --- !u!50 &1422161257
 Rigidbody2D:
   serializedVersion: 4
@@ -1103,7 +1136,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1216503036}
   m_Father: {fileID: 1422161255}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
