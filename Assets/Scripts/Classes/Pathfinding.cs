@@ -8,6 +8,6 @@ public class Pathfinding
 
     public Pathfinding(int width, int height)
     {
-        grid = new Grid<PathNode>(width, height, 1f, Vector3.zero);
+        // grid = new Grid<PathNode>(width, height, 1f, Vector3.zero);
     }
 }

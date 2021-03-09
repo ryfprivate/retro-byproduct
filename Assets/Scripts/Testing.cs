@@ -30,21 +30,21 @@ public class Testing : MonoBehaviour
 
     void Start()
     {
-        grid = new Grid<int>(30, 30, 1f, new Vector3(0, 0));
+        grid = new Grid<int>(30, 30, 1f, Vector3.zero, (Grid<int> g, int x, int y) => 0);
     }
 
     void HandleLeftClick(InputAction.CallbackContext ctx)
     {
         Vector2 screenPosition = Mouse.current.position.ReadValue();
         Vector2 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
-        grid.SetValue(worldPosition, 1);
+        grid.SetGridObject(worldPosition, 1);
     }
 
     void HandleRightClick(InputAction.CallbackContext ctx)
     {
         Vector2 screenPosition = Mouse.current.position.ReadValue();
         Vector2 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
-        Debug.Log(grid.GetValue(worldPosition));
+        Debug.Log(grid.GetGridObject(worldPosition));
     }
 
     void Update()
