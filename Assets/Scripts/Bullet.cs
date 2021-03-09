@@ -12,6 +12,11 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
 
+    void Start()
+    {
+        StartCoroutine(DestroyBulletAfterTime());
+    }
+
     void Update()
     {
         transform.Translate(Vector3.down * speed * Time.deltaTime);
