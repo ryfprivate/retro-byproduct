@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    float speed = 7f;
+    float speed = 10f;
 
     IEnumerator DestroyBulletAfterTime()
     {

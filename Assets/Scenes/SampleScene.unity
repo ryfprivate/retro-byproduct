@@ -790,6 +790,7 @@ MonoBehaviour:
   rb: {fileID: 1422161257}
   animator: {fileID: 91396545}
   aimUI: {fileID: 1617114815}
+  aimSprite: {fileID: 1617114816}
   moveSpeed: 5
   firePoint: {fileID: 1216503036}
   bulletParent: {fileID: 782926234}

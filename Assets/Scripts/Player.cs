@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
     public Transform aimUI;
+    public SpriteRenderer aimSprite;
 
     public float moveSpeed = 5f;
 
@@ -29,7 +30,9 @@ public class Player : MonoBehaviour
 
     IEnumerator Reload()
     {
+        aimSprite.color = new Color(1f, 1f, 1f, 0f);
         yield return new WaitForSeconds(reloadTime);
+        aimSprite.color = new Color(1f, 1f, 1f, 1f);
         canShoot = true;
     }
 
