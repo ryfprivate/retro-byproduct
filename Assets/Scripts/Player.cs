@@ -16,6 +16,12 @@ public class Player : MonoBehaviour
     Vector2 movement;
     Vector2 aim;
 
+    // Shooting
+    public Transform firePoint;
+    public GameObject bulletPrefab;
+
+    public float bulletForce = 20f;
+
     void OnEnable() {
         moveInput.Enable();
         aimInput.Enable();

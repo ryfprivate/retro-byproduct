@@ -623,6 +623,36 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1216503035
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1216503036}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1216503036
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216503035}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1422161255}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1422161254
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,6 +664,7 @@ GameObject:
   - component: {fileID: 1422161255}
   - component: {fileID: 1422161256}
   - component: {fileID: 1422161257}
+  - component: {fileID: 1422161259}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -655,6 +686,7 @@ Transform:
   - {fileID: 1505839977}
   - {fileID: 91396544}
   - {fileID: 1617114815}
+  - {fileID: 1216503036}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -806,6 +838,46 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Aim Input
       m_Flags: 8
+    - m_Name: Controller
+      m_Id: a1690fea-be2e-486c-92fa-785f3a6e9df4
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Aim Input
+      m_Flags: 4
+    - m_Name: up
+      m_Id: 3f7e4739-ef3f-42da-90cd-f5252ed0f180
+      m_Path: <Gamepad>/rightStick/up
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Aim Input
+      m_Flags: 8
+    - m_Name: down
+      m_Id: bf31ac23-c478-4962-994b-ebeefee98cd4
+      m_Path: <Gamepad>/rightStick/down
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Aim Input
+      m_Flags: 8
+    - m_Name: left
+      m_Id: 8c1f1222-1a0b-4def-8b4e-3f676801020a
+      m_Path: <Gamepad>/rightStick/left
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Aim Input
+      m_Flags: 8
+    - m_Name: right
+      m_Id: 7e9c8530-e1be-4a5c-b5bd-e86e64ed7d54
+      m_Path: <Gamepad>/rightStick/right
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Aim Input
+      m_Flags: 8
   rb: {fileID: 1422161257}
   animator: {fileID: 91396545}
   aimUI: {fileID: 1617114815}
@@ -831,6 +903,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!61 &1422161259
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422161254}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0018041134, y: -0.000000059604645}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.7726846, y: 0.8917545}
+  m_EdgeRadius: 0
 --- !u!1 &1505839976
 GameObject:
   m_ObjectHideFlags: 0
@@ -989,7 +1087,7 @@ GameObject:
   - component: {fileID: 1617114815}
   - component: {fileID: 1617114816}
   m_Layer: 0
-  m_Name: UiIcons_20
+  m_Name: Aim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
