@@ -7,9 +7,6 @@ public class Player : MonoBehaviour
 {
     private GameControls controls;
 
-    public InputAction moveInput;
-    public InputAction shootInput;
-
     public Rigidbody2D rb;
     public Animator animator;
     public Transform aimUI;
@@ -34,21 +31,17 @@ public class Player : MonoBehaviour
     void OnEnable()
     {
         controls.Enable();
-
-        // moveInput.Enable();
-        // shootInput.Enable();
     }
 
     void onDisable()
     {
         controls.Disable();
-        // moveInput.Disable();
-        // shootInput.Disable();
     }
 
     void Start()
     {
         controls.Player.Shoot.performed += _ => PlayerShoot();
+        Debug.Log("Game STart");
     }
 
     void PlayerShoot()
@@ -59,8 +52,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        moveVector = moveInput.ReadValue<Vector2>();
-        aimVector = shootInput.ReadValue<Vector2>();
+        moveVector = controls.Player.Movement.ReadValue<Vector2>();
+        aimVector = controls.Player.Aim.ReadValue<Vector2>();
         float angle = Vector3.SignedAngle(new Vector2(0, -1), aimVector, Vector3.forward);
         aimUI.rotation = Quaternion.Euler(0, 0, angle);
 
