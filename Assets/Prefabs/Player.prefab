@@ -195,6 +195,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4415295625483386872}
   - component: {fileID: 4415295625483386869}
+  - component: {fileID: 8002772159625833906}
   - component: {fileID: 4415295625483386871}
   - component: {fileID: 4415295625483386870}
   - component: {fileID: 4415295625483386868}
@@ -234,6 +235,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 4415295624672645981}
+--- !u!114 &8002772159625833906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4415295625483386873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 113fd980082b16d47bc8ab36210bcd68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4415295625483386871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,7 +265,6 @@ MonoBehaviour:
   aimSprite: {fileID: 4415295625158114399}
   moveSpeed: 5
   firePoint: {fileID: 4415295625814595171}
-  bulletParent: {fileID: 0}
   bulletPrefab: {fileID: 3561064506258334413, guid: d2c22f03f6a0eb64ab1b507be028fdd7, type: 3}
   bulletForce: 20
   reloadTime: 1

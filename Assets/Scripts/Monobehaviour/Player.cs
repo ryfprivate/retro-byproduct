@@ -5,6 +5,10 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    public static Player Instance { get; private set; }
+
+    private PlayerMain playerMain;
+
     private GameControls controls;
 
     public Rigidbody2D rb;
@@ -19,7 +23,6 @@ public class Player : MonoBehaviour
 
     // Shooting
     public Transform firePoint;
-    public Transform bulletParent;
     public GameObject bulletPrefab;
 
     public float bulletForce = 20f;
@@ -39,6 +42,8 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         controls = new GameControls();
+        Instance = this;
+        playerMain = GetComponent<PlayerMain>();
     }
 
     void OnEnable()
@@ -66,7 +71,7 @@ public class Player : MonoBehaviour
         if (!canShoot) return;
 
         animator.SetTrigger("Shoot");
-        GameObject g = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation, bulletParent);
+        GameObject g = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Physics2D.IgnoreCollision(g.GetComponent<Collider2D>(), GetComponent<Collider2D>());
         g.SetActive(true);
         canShoot = false;
@@ -86,7 +91,6 @@ public class Player : MonoBehaviour
         }
         moveVector = controls.Player.Movement.ReadValue<Vector2>();
         aimVector = controls.Player.Aim.ReadValue<Vector2>();
-        // Debug.Log(aimVector);
         float angle = Vector3.SignedAngle(new Vector2(0, -1), aimVector, Vector3.forward);
         aimUI.rotation = Quaternion.Euler(0, 0, angle);
 

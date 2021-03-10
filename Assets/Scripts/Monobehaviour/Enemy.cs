@@ -84,7 +84,7 @@ public class Enemy : MonoBehaviour
     }
 
     void FindTarget() {
-        float targetRange = 5f;
+        // float targetRange = 5f;
     }
 
     void OnCollisionEnter2D(Collision2D col)

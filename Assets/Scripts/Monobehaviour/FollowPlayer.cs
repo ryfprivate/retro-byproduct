@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
-    public Transform player;
     public Vector3 offset;
 
     void Update()
     {
-        transform.position = new Vector3(player.position.x + offset.x, player.position.y + offset.y, -10f); // Camera follows the player with specified offset position
+        Player player = Player.Instance;
+        // If there is a player, then follow it with the camera
+        if (player) transform.position = new Vector3(player.transform.position.x + offset.x, player.transform.position.y + offset.y, -10f);
     }
 }
