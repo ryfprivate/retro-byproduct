@@ -33,12 +33,10 @@ public class Pathfinding
         List<PathNode> path = FindPath(startX, startY, endX, endY);
         if (path == null)
         {
-            Debug.Log("no path");
             return null;
         }
         else
         {
-            Debug.Log("there is path");
             List<Vector3> vectorPath = new List<Vector3>();
             foreach (PathNode pathNode in path)
             {

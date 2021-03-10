@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CodeMonkey.Utils;
 
 public class Enemy : MonoBehaviour
 {
     public Rigidbody2D rb;
     public Animator animator;
+
+    Vector3 startingPosition;
+    Vector3 roamPosition;
 
     int currentPathIndex;
     List<Vector3> pathVectorList;
@@ -27,7 +31,9 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        SetTargetPosition(Vector3.zero);
+        startingPosition = transform.position;
+        roamPosition = GetRoamingPosition();
+        SetTargetPosition(roamPosition);
     }
 
     void Update()
@@ -56,19 +62,34 @@ public class Enemy : MonoBehaviour
                 currentPathIndex++;
                 if (currentPathIndex >= pathVectorList.Count)
                 {
-                    pathVectorList = null;
-                    moveVector = Vector3.zero;
+                    // pathVectorList = null;
+                    // moveVector = Vector3.zero;
+                    roamPosition = GetRoamingPosition();
+                    SetTargetPosition(roamPosition);
                 }
             }
         }
         else
         {
-            moveVector = Vector3.zero;
+            roamPosition = GetRoamingPosition();
+            SetTargetPosition(roamPosition);
         }
 
         // Move
         rb.MovePosition(rb.position + moveVector * moveSpeed * Time.fixedDeltaTime);
     }
 
+    Vector3 GetRoamingPosition() {
+        return startingPosition + UtilsClass.GetRandomDir() * Random.Range(1f, 7f);
+    }
 
+    void FindTarget() {
+        float targetRange = 5f;
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        roamPosition = GetRoamingPosition();
+        SetTargetPosition(roamPosition);
+    }
 }

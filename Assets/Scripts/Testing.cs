@@ -32,7 +32,7 @@ public class Testing : MonoBehaviour
 
     void Start()
     {
-        pathfinding = new Pathfinding(30, 30);
+        pathfinding = new Pathfinding(25, 25);
         // grid = new Grid<int>(30, 30, 1f, Vector3.zero, (Grid<int> g, int x, int y) => 0);
     }
 
