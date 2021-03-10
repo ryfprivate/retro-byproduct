@@ -8,6 +8,8 @@ using CodeMonkey.Utils;
 public class GameController : MonoBehaviour
 {
     public GameObject playerPrefab;
+    public GameObject enemyPrefab;
+
     public Tilemap baseTilemap;
     public Tilemap spawnTilemap;
     public Tilemap collidableTilemap;
@@ -15,6 +17,8 @@ public class GameController : MonoBehaviour
     // Class Instances
     private GameControls controls;
     private Pathfinding _pathfinding;
+
+    private int numEnemies;
 
     void OnEnable()
     {
@@ -38,6 +42,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        numEnemies = 4;
         // Adds all spawn locations to a list
         // Adds all collidable tiles as obstacles in the pathfinding grid
         List<Vector3> spawnLocations = new List<Vector3>();
@@ -69,11 +74,15 @@ public class GameController : MonoBehaviour
         // Spawn player on random spawn location
         Vector3 offset = new Vector3(.5f, .5f, 0);
         // Adds offset to position to spawn in middle of cell
-        Vector3 spawnPosition = spawnLocations[Random.Range(0, spawnLocations.Count)] + offset;
-        Instantiate(playerPrefab, spawnPosition, Quaternion.Euler(Vector3.zero));
+        Vector3 playerSpawnPosition = spawnLocations[Random.Range(0, spawnLocations.Count)] + offset;
+        Instantiate(playerPrefab, playerSpawnPosition, Quaternion.Euler(Vector3.zero));
 
         // Spawns enemies on a random spawn location
-
+        for (int i = 0; i < numEnemies; i++)
+        {
+            Vector3 enemySpawnPosition = spawnLocations[Random.Range(0, spawnLocations.Count)] + offset;
+            Instantiate(enemyPrefab, enemySpawnPosition, Quaternion.Euler(Vector3.zero));
+        }
     }
 
     private void HandleLeftClick(InputAction.CallbackContext ctx)
