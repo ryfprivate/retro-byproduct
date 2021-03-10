@@ -5,18 +5,53 @@ using CodeMonkey.Utils;
 
 public class Enemy : MonoBehaviour
 {
+    private enum State {
+        Stationary,
+        Roaming,
+        ChaseTarget
+    }
+
     public Rigidbody2D rb;
     public Animator animator;
 
-    Vector3 startingPosition;
-    Vector3 roamPosition;
+    private Vector3 startingPosition;
+    private Vector3 roamPosition;
 
-    int currentPathIndex;
-    List<Vector3> pathVectorList;
+    private int currentPathIndex;
+    private List<Vector3> pathVectorList;
 
-    public float moveSpeed = 5f;
-    Vector2 moveVector;
-    bool isMoving;
+    private float moveSpeed = 5f;
+    private Vector2 moveVector;
+    private bool isMoving;
+
+    private State state;
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        // roamPosition = GetRoamingPosition();
+        // SetTargetPosition(roamPosition);
+    }
+
+    void Start()
+    {
+        state = State.Stationary;
+
+        startingPosition = transform.position;
+        SetNewDestination();
+    }
+
+    void Update()
+    {
+        animator.SetFloat("Horizontal", moveVector.x);
+        animator.SetFloat("Vertical", moveVector.y);
+        animator.SetFloat("Speed", moveVector.sqrMagnitude);
+    }
+
+    void FixedUpdate()
+    {
+        FindTarget();
+        HandleMovement();
+    }
 
     public void SetTargetPosition(Vector3 targetPosition)
     {
@@ -29,67 +64,68 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void Start()
+    private void HandleMovement()
     {
-        startingPosition = transform.position;
-        roamPosition = GetRoamingPosition();
-        SetTargetPosition(roamPosition);
-    }
-
-    void Update()
-    {
-        animator.SetFloat("Horizontal", moveVector.x);
-        animator.SetFloat("Vertical", moveVector.y);
-        animator.SetFloat("Speed", moveVector.sqrMagnitude);
-    }
-
-    void FixedUpdate()
-    {
-        HandleMovement();
-    }
-
-    void HandleMovement()
-    {
+        // If there is a path set for the character
         if (pathVectorList != null)
         {
+            // Gets the first tile position in the path
             Vector3 targetPosition = pathVectorList[currentPathIndex];
-            if (Vector3.Distance(transform.position, targetPosition) > 0.8f)
+            // If it hasn't reached the tile, set the character's direction to the position
+            if (Vector3.Distance(transform.position, targetPosition) > 0.5f)
             {
                 moveVector = (targetPosition - transform.position).normalized;
             }
+            // If it has reached the tile, increment to the next tile position in the path
             else
             {
                 currentPathIndex++;
+                // If it has reached the end destination, set a new position
                 if (currentPathIndex >= pathVectorList.Count)
                 {
-                    // pathVectorList = null;
-                    // moveVector = Vector3.zero;
-                    roamPosition = GetRoamingPosition();
-                    SetTargetPosition(roamPosition);
+                    SetNewDestination();
                 }
             }
         }
+        // If there is no path set for the character
         else
         {
-            roamPosition = GetRoamingPosition();
-            SetTargetPosition(roamPosition);
+            SetNewDestination();
         }
 
         // Move
         rb.MovePosition(rb.position + moveVector * moveSpeed * Time.fixedDeltaTime);
     }
 
-    Vector3 GetRoamingPosition() {
+    private void SetNewDestination() {
+        switch (state) {
+            case State.Roaming:
+                // Debug.Log("roaming");
+                roamPosition = GetRoamingPosition();
+                SetTargetPosition(roamPosition);
+                break;
+            case State.ChaseTarget:
+                pathVectorList = null;
+                Debug.Log("chasing target");
+
+                break;
+            default:
+                pathVectorList = null;
+                moveVector = Vector2.zero;
+                break;
+        }
+    }
+
+    private Vector3 GetRoamingPosition() {
         return startingPosition + UtilsClass.GetRandomDir() * Random.Range(1f, 7f);
     }
 
-    void FindTarget() {
-        // float targetRange = 5f;
-    }
-
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        roamPosition = GetRoamingPosition();
-        SetTargetPosition(roamPosition);
+    private void FindTarget() {
+        float targetRange = 5f;
+        if (Vector3.Distance(transform.position, Player.Instance.transform.position) < targetRange) {
+            state = State.Roaming;
+        } else {
+            state = State.Stationary;
+        }
     }
 }

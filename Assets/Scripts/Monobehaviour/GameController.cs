@@ -60,7 +60,7 @@ public class GameController : MonoBehaviour
 
                 if (spawnTile != null)
                 {
-                    Debug.Log("x:" + x + " y:" + y + " tile:" + spawnTile.name);
+                    // Debug.Log("x:" + x + " y:" + y + " tile:" + spawnTile.name);
                     spawnLocations.Add(new Vector3(x, y, 0));
                 }
 

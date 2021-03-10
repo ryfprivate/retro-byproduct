@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     public GameObject bulletPrefab;
 
     public float bulletForce = 20f;
-    public float reloadTime = 0.5f;
+    public float reloadTime = 0.1f;
 
     bool isShooting;
     bool canShoot;
@@ -39,13 +39,6 @@ public class Player : MonoBehaviour
         canShoot = true;
     }
 
-    private void Awake()
-    {
-        controls = new GameControls();
-        Instance = this;
-        playerMain = GetComponent<PlayerMain>();
-    }
-
     void OnEnable()
     {
         controls.Enable();
@@ -56,6 +49,13 @@ public class Player : MonoBehaviour
         controls.Disable();
     }
 
+    void Awake()
+    {
+        controls = new GameControls();
+        Instance = this;
+        playerMain = GetComponent<PlayerMain>();
+    }
+
     void Start()
     {
         controls.Player.Shoot.performed += _ => StartShooting();
@@ -63,24 +63,6 @@ public class Player : MonoBehaviour
 
         isShooting = false;
         canShoot = true;
-    }
-
-    void StartShooting()
-    {
-        isShooting = true;
-        if (!canShoot) return;
-
-        animator.SetTrigger("Shoot");
-        GameObject g = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Physics2D.IgnoreCollision(g.GetComponent<Collider2D>(), GetComponent<Collider2D>());
-        g.SetActive(true);
-        canShoot = false;
-        StartCoroutine(Reload());
-    }
-
-    void StopShooting()
-    {
-        isShooting = false;
     }
 
     void Update()
@@ -103,5 +85,23 @@ public class Player : MonoBehaviour
     {
         // Player Movement
         rb.MovePosition(rb.position + moveVector * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    private void StartShooting()
+    {
+        isShooting = true;
+        if (!canShoot) return;
+
+        animator.SetTrigger("Shoot");
+        GameObject g = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Physics2D.IgnoreCollision(g.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        g.SetActive(true);
+        canShoot = false;
+        StartCoroutine(Reload());
+    }
+
+    private void StopShooting()
+    {
+        isShooting = false;
     }
 }
