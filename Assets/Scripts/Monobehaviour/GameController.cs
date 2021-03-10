@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
 {
     public GameObject playerPrefab;
     public Tilemap baseTilemap;
+    public Tilemap spawnTilemap;
     public Tilemap collidableTilemap;
 
     // Class Instances
@@ -37,33 +38,42 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        // Spawn player
-        Vector3 spawnPosition = new Vector3(15, 15, 0);
-        Instantiate(playerPrefab, spawnPosition, Quaternion.Euler(Vector3.zero));
-
-
-        // Spawn enemies
-        //      Spawns enemies on the boundaries of the grid
-
-
+        // Adds all spawn locations to a list
         // Adds all collidable tiles as obstacles in the pathfinding grid
-        //      Ensures the bounds are restored to the outmost tiles
+        List<Vector3> spawnLocations = new List<Vector3>();
+
         baseTilemap.CompressBounds();
-        collidableTilemap.CompressBounds();
         BoundsInt bounds = baseTilemap.cellBounds;
-        TileBase[] allTiles = collidableTilemap.GetTilesBlock(bounds);
+        TileBase[] spawnTiles = spawnTilemap.GetTilesBlock(bounds);
+        TileBase[] collidableTiles = collidableTilemap.GetTilesBlock(bounds);
         for (int x = 0; x < bounds.size.x; x++)
         {
             for (int y = 0; y < bounds.size.y; y++)
             {
-                TileBase tile = allTiles[x + y * bounds.size.x];
-                if (tile != null)
+                TileBase spawnTile = spawnTiles[x + y * bounds.size.x];
+                TileBase collidableTile = collidableTiles[x + y * bounds.size.x];
+
+                if (spawnTile != null)
                 {
-                    // Debug.Log("x:" + x + " y:" + y + " tile:" + tile.name);
+                    Debug.Log("x:" + x + " y:" + y + " tile:" + spawnTile.name);
+                    spawnLocations.Add(new Vector3(x, y, 0));
+                }
+
+                if (collidableTile != null)
+                {
                     _pathfinding.GetGrid().GetGridObject(x, y).isWalkable = false;
                 }
             }
         }
+
+        // Spawn player on random spawn location
+        Vector3 offset = new Vector3(.5f, .5f, 0);
+        // Adds offset to position to spawn in middle of cell
+        Vector3 spawnPosition = spawnLocations[Random.Range(0, spawnLocations.Count)] + offset;
+        Instantiate(playerPrefab, spawnPosition, Quaternion.Euler(Vector3.zero));
+
+        // Spawns enemies on a random spawn location
+
     }
 
     private void HandleLeftClick(InputAction.CallbackContext ctx)
