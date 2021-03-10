@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Tilemaps;
 using CodeMonkey.Utils;
 
-public class Game : MonoBehaviour
+public class GameController : MonoBehaviour
 {
     public GameObject playerPrefab;
+    public Tilemap baseTilemap;
+    public Tilemap collidableTilemap;
 
     // Class Instances
     private GameControls controls;
@@ -25,7 +28,8 @@ public class Game : MonoBehaviour
         // controls.Player.RightClick.performed -= ctx => HandleRightClick(ctx);
     }
 
-    void Awake() {
+    void Awake()
+    {
         controls = new GameControls();
         _pathfinding = new Pathfinding(25, 25);
     }
@@ -33,8 +37,33 @@ public class Game : MonoBehaviour
 
     void Start()
     {
+        // Spawn player
         Vector3 spawnPosition = new Vector3(15, 15, 0);
         Instantiate(playerPrefab, spawnPosition, Quaternion.Euler(Vector3.zero));
+
+
+        // Spawn enemies
+        //      Spawns enemies on the boundaries of the grid
+
+
+        // Adds all collidable tiles as obstacles in the pathfinding grid
+        //      Ensures the bounds are restored to the outmost tiles
+        baseTilemap.CompressBounds();
+        collidableTilemap.CompressBounds();
+        BoundsInt bounds = baseTilemap.cellBounds;
+        TileBase[] allTiles = collidableTilemap.GetTilesBlock(bounds);
+        for (int x = 0; x < bounds.size.x; x++)
+        {
+            for (int y = 0; y < bounds.size.y; y++)
+            {
+                TileBase tile = allTiles[x + y * bounds.size.x];
+                if (tile != null)
+                {
+                    // Debug.Log("x:" + x + " y:" + y + " tile:" + tile.name);
+                    _pathfinding.GetGrid().GetGridObject(x, y).isWalkable = false;
+                }
+            }
+        }
     }
 
     private void HandleLeftClick(InputAction.CallbackContext ctx)
