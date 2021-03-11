@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class EnemyMain : Character
 {
-    public Rigidbody2D rb;
+    public Rigidbody2D EnemyRigidbody2D { get; private set; }
+
     public Vector3 moveVector;
+
+    void Awake()
+    {
+        EnemyRigidbody2D = GetComponent<Rigidbody2D>();
+    }
 
     void Start()
     {

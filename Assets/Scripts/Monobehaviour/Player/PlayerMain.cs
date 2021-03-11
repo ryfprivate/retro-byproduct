@@ -12,7 +12,7 @@ public class PlayerMain : MonoBehaviour
 
     public Rigidbody2D PlayerRigidbody2D { get; private set; }
 
-    private void Awake()
+    void Awake()
     {
         Player = GetComponent<Player>();
         // PlayerSwapAimNormal = GetComponent<PlayerSwapAimNormal>();

@@ -26,7 +26,7 @@ public class EnemyPathfindingMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        enemyMain.rb.velocity = enemyMain.moveVector * SPEED;
+        enemyMain.EnemyRigidbody2D.velocity = enemyMain.moveVector * SPEED;
     }
 
     private void HandleMovement()
@@ -103,17 +103,6 @@ public class EnemyPathfindingMovement : MonoBehaviour
     public Vector3 GetLastmoveVector()
     {
         return lastmoveVector;
-    }
-
-    public void Enable()
-    {
-        enabled = true;
-    }
-
-    public void Disable()
-    {
-        enabled = false;
-        // enemyMain.EnemyRigidbody2D.velocity = Vector3.zero;
     }
 
 }

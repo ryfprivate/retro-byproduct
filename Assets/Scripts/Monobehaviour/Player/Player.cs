@@ -11,12 +11,10 @@ public class Player : Character
 
     private GameControls controls;
 
-    public Rigidbody2D rb;
-
     public float moveSpeed = 5f;
 
-    Vector2 moveVector;
-    Vector2 aimVector;
+    private Vector2 moveVector;
+    private Vector2 aimVector;
 
     void OnEnable()
     {
@@ -57,6 +55,7 @@ public class Player : Character
     void FixedUpdate()
     {
         // Player Movement
+        Rigidbody2D rb = playerMain.PlayerRigidbody2D;
         rb.MovePosition(rb.position + moveVector * moveSpeed * Time.fixedDeltaTime);
     }
 }
