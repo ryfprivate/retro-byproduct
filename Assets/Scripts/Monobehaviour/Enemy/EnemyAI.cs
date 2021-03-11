@@ -64,6 +64,17 @@ public class EnemyAI : MonoBehaviour
 
                 FindTarget();
                 break;
+            case State.ChaseTarget:
+                if (Player.Instance == null) break;
+                pathfindingMovement.MoveTo(Player.Instance.transform.position);
+
+                float stopChaseDistance = 5f;
+                if (Vector3.Distance(transform.position, Player.Instance.transform.position) > stopChaseDistance)
+                {
+                    // Too far, stop chasing
+                    state = State.Stationary;
+                }
+                break;
             case State.Stationary:
                 Debug.Log("stationary");
                 break;
@@ -80,7 +91,6 @@ public class EnemyAI : MonoBehaviour
             position = startingPosition + UtilsClass.GetRandomDir() * Random.Range(1f, 10f);
         }
 
-        Debug.Log("roam position " + position);
         return position;
     }
 
@@ -91,7 +101,7 @@ public class EnemyAI : MonoBehaviour
         float targetRange = 5f;
         if (Vector3.Distance(transform.position, Player.Instance.transform.position) < targetRange)
         {
-            Debug.Log("found player");
+            state = State.ChaseTarget;
         }
     }
 }
