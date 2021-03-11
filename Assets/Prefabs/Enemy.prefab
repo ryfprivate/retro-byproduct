@@ -123,9 +123,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4268221577714459017}
   - component: {fileID: 4268221577714459012}
+  - component: {fileID: 7636934126192310542}
+  - component: {fileID: 6161992121358735758}
+  - component: {fileID: 987875308207105173}
   - component: {fileID: 4268221577714459015}
   - component: {fileID: 4268221577714459013}
-  - component: {fileID: 4268221577714459023}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Player
@@ -162,6 +164,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 4268221578546056492}
+--- !u!114 &7636934126192310542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4268221577714459016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581d5903408156c43a4406dddca4c32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 4268221577714459015}
+  animator: {fileID: 4268221578546056495}
+  moveVector: {x: 0, y: 0, z: 0}
+--- !u!114 &6161992121358735758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4268221577714459016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30abb75a19f0f044d839974cfdac2f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &987875308207105173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4268221577714459016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3ef025877c1ea247817d56e8b16152a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &4268221577714459015
 Rigidbody2D:
   serializedVersion: 4
@@ -209,20 +250,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.63548183, y: 0.75455093}
   m_EdgeRadius: 0
---- !u!114 &4268221577714459023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4268221577714459016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30abb75a19f0f044d839974cfdac2f05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 4268221577714459015}
-  animator: {fileID: 4268221578546056495}
 --- !u!1 &4268221578546056529
 GameObject:
   m_ObjectHideFlags: 0

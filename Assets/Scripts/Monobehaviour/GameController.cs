@@ -82,7 +82,7 @@ public class GameController : MonoBehaviour
         Vector3 offset = new Vector3(.5f, .5f, 0);
         // Adds offset to position to spawn in middle of cell
         Vector3 playerSpawnPosition = spawnLocations[Random.Range(0, spawnLocations.Count)] + offset;
-        Instantiate(playerPrefab, playerSpawnPosition, Quaternion.Euler(Vector3.zero));
+        // Instantiate(playerPrefab, playerSpawnPosition, Quaternion.Euler(Vector3.zero));
 
         // Spawns enemies on a random spawn location
         for (int i = 0; i < numEnemies; i++)
