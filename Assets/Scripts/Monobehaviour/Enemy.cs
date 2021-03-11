@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using CodeMonkey.Utils;
 
 public class Enemy : MonoBehaviour
@@ -34,8 +35,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        state = State.Stationary;
-
+        state = State.Roaming;
         startingPosition = transform.position;
         SetNewDestination();
     }
@@ -93,6 +93,8 @@ public class Enemy : MonoBehaviour
             SetNewDestination();
         }
 
+        // Drawing enemy path
+        // GameController.Instance.pathTilemap.SetTile(Vector3Int.FloorToInt(transform.position), GameController.Instance.pathTile);
         // Move
         rb.MovePosition(rb.position + moveVector * moveSpeed * Time.fixedDeltaTime);
     }
@@ -121,11 +123,13 @@ public class Enemy : MonoBehaviour
     }
 
     private void FindTarget() {
+        if (Player.Instance == null) return;
+
         float targetRange = 5f;
         if (Vector3.Distance(transform.position, Player.Instance.transform.position) < targetRange) {
             state = State.Roaming;
         } else {
-            state = State.Stationary;
+            state = State.Roaming;
         }
     }
 }

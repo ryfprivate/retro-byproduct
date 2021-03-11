@@ -7,12 +7,17 @@ using CodeMonkey.Utils;
 
 public class GameController : MonoBehaviour
 {
+    public static GameController Instance { get; private set; }
+
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
 
     public Tilemap baseTilemap;
     public Tilemap spawnTilemap;
     public Tilemap collidableTilemap;
+
+    public Tilemap pathTilemap;
+    public Tile pathTile;
 
     // Class Instances
     private GameControls controls;
@@ -35,6 +40,8 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
+        Instance = this;
+
         controls = new GameControls();
         _pathfinding = new Pathfinding(25, 25);
     }
@@ -80,7 +87,9 @@ public class GameController : MonoBehaviour
         // Spawns enemies on a random spawn location
         for (int i = 0; i < numEnemies; i++)
         {
-            Vector3 enemySpawnPosition = spawnLocations[Random.Range(0, spawnLocations.Count)] + offset;
+            int randomIdx = Random.Range(0, spawnLocations.Count);
+            Vector3 enemySpawnPosition = spawnLocations[randomIdx] + offset;
+            spawnLocations.Remove(enemySpawnPosition - offset);
             Instantiate(enemyPrefab, enemySpawnPosition, Quaternion.Euler(Vector3.zero));
         }
     }
