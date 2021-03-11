@@ -45,7 +45,7 @@ public class Player : Character
         moveVector = controls.Player.Movement.ReadValue<Vector2>();
         aimVector = controls.Player.Aim.ReadValue<Vector2>();
         float angle = Vector3.SignedAngle(new Vector2(0, -1), aimVector, Vector3.forward);
-        aimUI.rotation = Quaternion.Euler(0, 0, angle);
+        aimTransform.rotation = Quaternion.Euler(0, 0, angle);
 
         animator.SetFloat("Horizontal", moveVector.x);
         animator.SetFloat("Vertical", moveVector.y);

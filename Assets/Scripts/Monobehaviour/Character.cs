@@ -8,7 +8,7 @@ public class Character : MonoBehaviour
 
     public Animator animator;
     public SpriteRenderer aimSprite;
-    public Transform aimUI;
+    public Transform aimTransform;
 
     // Shooting
     public Transform firePoint;
