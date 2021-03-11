@@ -66,7 +66,8 @@ public class EnemyAI : MonoBehaviour
                 break;
             case State.ChaseTarget:
                 if (Player.Instance == null) break;
-                pathfindingMovement.MoveTo(Player.Instance.transform.position);
+                Vector3 direction = (Player.Instance.transform.position - transform.position).normalized;
+                pathfindingMovement.MoveTo(transform.position + direction);
 
                 float stopChaseDistance = 5f;
                 if (Vector3.Distance(transform.position, Player.Instance.transform.position) > stopChaseDistance)
@@ -77,6 +78,7 @@ public class EnemyAI : MonoBehaviour
                 break;
             case State.Stationary:
                 Debug.Log("stationary");
+                FindTarget();
                 break;
         }
     }

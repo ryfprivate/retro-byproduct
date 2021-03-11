@@ -39,7 +39,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4268221576986796624}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -122,7 +122,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4268221577714459017}
-  - component: {fileID: 4268221577714459012}
   - component: {fileID: 7636934126192310542}
   - component: {fileID: 6161992121358735758}
   - component: {fileID: 987875308207105173}
@@ -151,19 +150,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4268221577714459012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4268221577714459016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5af72d33f0281f54c8f7055bf969001e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprite: {fileID: 4268221578546056492}
 --- !u!114 &7636934126192310542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,8 +162,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 581d5903408156c43a4406dddca4c32e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 4268221577714459015}
+  sprite: {fileID: 4268221578546056492}
   animator: {fileID: 4268221578546056495}
+  aimSprite: {fileID: 4268221576986796590}
+  aimUI: {fileID: 4268221576986796625}
+  firePoint: {fileID: 4268221577643280402}
+  bulletPrefab: {fileID: 3561064506258334413, guid: d2c22f03f6a0eb64ab1b507be028fdd7, type: 3}
+  bulletForce: 20
+  reloadTime: 0.1
+  rb: {fileID: 4268221577714459015}
   moveVector: {x: 0, y: 0, z: 0}
 --- !u!114 &6161992121358735758
 MonoBehaviour:
