@@ -61,6 +61,8 @@ public class EnemyAI : MonoBehaviour
                     // Find new roaming position
                     roamPosition = GetRoamingPosition();
                 }
+
+                FindTarget();
                 break;
             case State.Stationary:
                 Debug.Log("stationary");
@@ -70,7 +72,16 @@ public class EnemyAI : MonoBehaviour
 
     private Vector3 GetRoamingPosition()
     {
-        return startingPosition + UtilsClass.GetRandomDir() * Random.Range(1f, 10f);
+        Vector3 position = startingPosition + UtilsClass.GetRandomDir() * Random.Range(1f, 10f);
+        int width = Pathfinding.Instance.GetGrid().GetWidth();
+        int height = Pathfinding.Instance.GetGrid().GetHeight();
+        while (position.x < 0 || position.x > width || position.y < 0 || position.y > height)
+        {
+            position = startingPosition + UtilsClass.GetRandomDir() * Random.Range(1f, 10f);
+        }
+
+        Debug.Log("roam position " + position);
+        return position;
     }
 
     private void FindTarget()
@@ -80,11 +91,7 @@ public class EnemyAI : MonoBehaviour
         float targetRange = 5f;
         if (Vector3.Distance(transform.position, Player.Instance.transform.position) < targetRange)
         {
-            state = State.Roaming;
-        }
-        else
-        {
-            state = State.Roaming;
+            Debug.Log("found player");
         }
     }
 }
