@@ -137,14 +137,13 @@ public class GameController : MonoBehaviour
 
     private void SpawnLairs() {
         lairs = new GameObject[lairPrefabs.Length];
-        // int len = lairPrefabs.Length;
-        int len = 5;
+        int len = lairPrefabs.Length;
         for (int i = 0; i<len; i++) {
-            // Vector3 spawnLocation = lairPrefabs[i].GetComponent<LairController>().spawnLocation;
-            Vector3 spawnLocation = new Vector3(12.5f, 12.5f, 0) + new Vector3(0, 25f*i, 0);
-            GameObject lair = Instantiate(lairPrefabs[0], spawnLocation, Quaternion.Euler(Vector3.zero));
-            lair.GetComponent<LairController>().spawnLocation = spawnLocation;
-            lairs[0] = lair;
+            Vector3 spawnLocation = lairPrefabs[i].GetComponent<LairController>().spawnLocation;
+            // Vector3 spawnLocation = new Vector3(12.5f, 12.5f, 0) + new Vector3(0, 25f*i, 0);
+            GameObject lair = Instantiate(lairPrefabs[i], spawnLocation, Quaternion.Euler(Vector3.zero));
+            // lair.GetComponent<LairController>().spawnLocation = spawnLocation;
+            lairs[i] = lair;
             
             DrawLairTiles(spawnLocation, lair);
         }
@@ -153,7 +152,9 @@ public class GameController : MonoBehaviour
     private void DrawLairTiles(Vector3 spawnLocation, GameObject lair) {
         lairTilemap.SetTile(Vector3Int.FloorToInt(spawnLocation), lairTile);
 
-        int lairRadius = lair.GetComponent<LairController>().lairRadius;
+        // int lairRadius = lair.GetComponent<LairController>().lairRadius;
+        // Change back to top later
+        int lairRadius = 1;
         for (int x = -lairRadius; x<lairRadius+1; x++) {
             for (int y = -lairRadius; y<lairRadius+1; y++) {
                 Vector3Int location = Vector3Int.FloorToInt(spawnLocation) + new Vector3Int(x, y, 0);

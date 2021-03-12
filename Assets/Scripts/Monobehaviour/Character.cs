@@ -44,8 +44,11 @@ public class Character : MonoBehaviour
             health -= damageDealt;
             if (health <= 0)
             {
+                if (gameObject.tag == "Monster") {
+                    GetComponent<MonsterMain>().LairController.Dead();
+                }
+
                 if (parent.tag == "Player") {
-                    Debug.Log("killed by player");
                     PlayerController.Instance.IncrementKill();
                 }
                 Destroy(gameObject);

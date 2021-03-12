@@ -70,7 +70,7 @@ public class MonsterSimpleAI : MonoBehaviour
                 Attack(direction);
                 pathfindingMovement.MoveTo(transform.position + direction);
 
-                if (Vector3.Distance(startingPosition, PlayerController.Instance.transform.position) > roamRadius + 1)
+                if (Vector3.Distance(startingPosition, PlayerController.Instance.transform.position) > roamRadius + 1.5f)
                 {
                     // Too far, stop chasing
                     state = State.Return;
@@ -111,7 +111,7 @@ public class MonsterSimpleAI : MonoBehaviour
         if (PlayerController.Instance == null) return;
 
         // Searches for target from center
-        if (Vector3.Distance(startingPosition, PlayerController.Instance.transform.position) < roamRadius + 1)
+        if (Vector3.Distance(startingPosition, PlayerController.Instance.transform.position) < roamRadius + 1.5f)
         {
             state = State.ChaseTarget;
         }

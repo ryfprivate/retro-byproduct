@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : Character
 {
-    private enum Type
+    public enum Type
     {
         Melee,
         Bowman
@@ -16,7 +16,7 @@ public class Player : Character
     // Attacking
     public GameObject bulletPrefab;
 
-    private Type type;
+    public Type type;
 
     public void OnAwake()
     {
@@ -50,6 +50,7 @@ public class Player : Character
                 break;
             case Type.Bowman:
                 GameObject arrow = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                arrow.GetComponent<Bullet>().SetParent(gameObject);
                 Physics2D.IgnoreCollision(arrow.GetComponent<Collider2D>(), GetComponent<Collider2D>());
                 arrow.SetActive(true);
                 break;
@@ -59,7 +60,7 @@ public class Player : Character
         StartCoroutine(Reload());
     }
 
-    private void SwitchToMelee()
+    public void SwitchToMelee()
     {
         type = Type.Melee;
         bowmanForm.SetActive(false);
@@ -68,7 +69,7 @@ public class Player : Character
         animator = meleeForm.GetComponent<Animator>();
     }
 
-    private void SwitchToBowman()
+    public void SwitchToBowman()
     {
         type = Type.Bowman;
         bowmanForm.SetActive(true);

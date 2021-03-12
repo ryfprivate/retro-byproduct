@@ -40,7 +40,32 @@ public class PlayerController : MonoBehaviour
     void Upgrade() {
         if (killCount > 2) {
             killCount = 0;
-            Debug.Log("upgrade");
+            playerMain.health = 100f;
+            // Upgrades:
+                // Increase fire rate
+                // Increase damage
+                // Increase move speed
+                // Increase range 
+            int randNum = Random.Range(0, 4);
+            Debug.Log("upgrade " + randNum);
+            switch (randNum) {
+                case 0:
+                    playerMain.reloadTime /= 1.1f;
+                    break;
+                case 1:
+                    playerMain.damage *= 1.1f;
+                    break;
+                case 2:
+                    moveSpeed *= 1.1f;
+                    break;
+                case 3:
+                    if (playerMain.type == Player.Type.Melee) {
+                        playerMain.SwitchToBowman();
+                    } else {
+                        playerMain.reloadTime /= 1.1f;
+                    }
+                    break;
+            }
         }
     }
 

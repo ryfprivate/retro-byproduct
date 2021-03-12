@@ -7,6 +7,8 @@ public class MonsterMain : Character
     public MonsterSimpleAI MonsterSimpleAI { get; private set; }
     public Rigidbody2D MonsterRigidbody2D { get; private set; }
 
+    public LairController LairController { get; set; }
+
     void Awake()
     {
         MonsterSimpleAI = GetComponent<MonsterSimpleAI>();
