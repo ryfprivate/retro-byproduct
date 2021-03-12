@@ -32,6 +32,8 @@ public class GameController : MonoBehaviour
 
     private int numEnemies;
 
+    private int mapSize = 200;
+
     void OnEnable()
     {
         controls.Enable();
@@ -50,7 +52,7 @@ public class GameController : MonoBehaviour
         Instance = this;
 
         controls = new GameControls();
-        _pathfinding = new Pathfinding(25, 25);
+        _pathfinding = new Pathfinding(mapSize, mapSize);
     }
 
 
@@ -107,6 +109,7 @@ public class GameController : MonoBehaviour
 
         baseTilemap.CompressBounds();
         BoundsInt bounds = baseTilemap.cellBounds;
+        Debug.Log(bounds);
         TileBase[] spawnTiles = spawnTilemap.GetTilesBlock(bounds);
         TileBase[] collidableTiles = collidableTilemap.GetTilesBlock(bounds);
         for (int x = 0; x < bounds.size.x; x++)
@@ -134,10 +137,14 @@ public class GameController : MonoBehaviour
 
     private void SpawnLairs() {
         lairs = new GameObject[lairPrefabs.Length];
-        for (int i = 0; i<lairPrefabs.Length; i++) {
-            Vector3 spawnLocation = lairPrefabs[i].GetComponent<LairController>().spawnLocation;
-            GameObject lair = Instantiate(lairPrefabs[i], spawnLocation, Quaternion.Euler(Vector3.zero));
-            lairs[i] = lair;
+        // int len = lairPrefabs.Length;
+        int len = 5;
+        for (int i = 0; i<len; i++) {
+            // Vector3 spawnLocation = lairPrefabs[i].GetComponent<LairController>().spawnLocation;
+            Vector3 spawnLocation = new Vector3(12.5f, 12.5f, 0) + new Vector3(0, 25f*i, 0);
+            GameObject lair = Instantiate(lairPrefabs[0], spawnLocation, Quaternion.Euler(Vector3.zero));
+            lair.GetComponent<LairController>().spawnLocation = spawnLocation;
+            lairs[0] = lair;
             
             DrawLairTiles(spawnLocation, lair);
         }

@@ -23,6 +23,8 @@ public class Character : MonoBehaviour
     public float reloadTime = 3f;
     public bool canAttack = true;
 
+    public float damage;
+
     public IEnumerator Reload()
     {
         aimSprite.color = new Color(1f, 1f, 1f, 0f);
@@ -36,7 +38,18 @@ public class Character : MonoBehaviour
         GameObject incoming = col.collider.gameObject;
         if (incoming.tag == "Damage")
         {
-            health -= 10f;
+            GameObject parent = incoming.GetComponent<Damage>().GetParent();
+            float damageDealt = parent.GetComponent<Character>().damage;
+            // Debug.Log("damage: " + damageDealt + " from " + parent);
+            health -= damageDealt;
+            if (health <= 0)
+            {
+                if (parent.tag == "Player") {
+                    Debug.Log("killed by player");
+                    PlayerController.Instance.IncrementKill();
+                }
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -54,10 +67,6 @@ public class Character : MonoBehaviour
         animator.SetFloat("AimH", aimVector.x);
         animator.SetFloat("AimV", aimVector.y);
 
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
         currentSprite.color = new Color(1f, 1f, 1f, health / 100);
         // Debug.LogFormat("health {0}", health.ToString());
     }

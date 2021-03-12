@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Punch : MonoBehaviour
+public class Punch : Damage
 {
 
     IEnumerator PunchTime()

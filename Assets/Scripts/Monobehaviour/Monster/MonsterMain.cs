@@ -17,6 +17,7 @@ public class MonsterMain : Character
     {
         base.OnStart();
         reloadTime = 3f;
+        damage = 10f;
     }
 
     void Update()

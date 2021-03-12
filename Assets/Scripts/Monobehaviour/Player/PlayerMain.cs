@@ -39,6 +39,8 @@ public class PlayerMain : Player
     void Start() {
         base.OnStart();
         controls.Player.Attack.performed += _ => Attack();
+        reloadTime = .1f;
+        damage = 30f;
     }
 
     void Update() {

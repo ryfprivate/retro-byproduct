@@ -130,6 +130,7 @@ public class MonsterSimpleAI : MonoBehaviour
             MonsterMain.aimTransform.rotation = Quaternion.Euler(0, 0, angle);
 
             GameObject punch = Instantiate(MonsterMain.punchPrefab, MonsterMain.firePoint.position, MonsterMain.firePoint.rotation);
+            punch.GetComponent<Punch>().SetParent(gameObject);
             Physics2D.IgnoreCollision(punch.GetComponent<Collider2D>(), GetComponent<Collider2D>());
 
             MonsterMain.canAttack = false;

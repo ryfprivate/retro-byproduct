@@ -44,6 +44,7 @@ public class Player : Character
         {
             case Type.Melee:
                 GameObject punch = Instantiate(punchPrefab, firePoint.position, firePoint.rotation);
+                punch.GetComponent<Punch>().SetParent(gameObject);
                 Physics2D.IgnoreCollision(punch.GetComponent<Collider2D>(), GetComponent<Collider2D>());
 
                 break;
