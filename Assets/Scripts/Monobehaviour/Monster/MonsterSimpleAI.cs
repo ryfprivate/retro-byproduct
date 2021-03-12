@@ -9,7 +9,8 @@ public class MonsterSimpleAI : MonoBehaviour
     {
         Stationary,
         Roaming,
-        ChaseTarget
+        ChaseTarget,
+        Return
     }
 
     private MonsterPathfindingMovement pathfindingMovement;
@@ -65,16 +66,26 @@ public class MonsterSimpleAI : MonoBehaviour
                 Vector3 direction = (PlayerController.Instance.transform.position - transform.position).normalized;
                 pathfindingMovement.MoveTo(transform.position + direction);
 
-                float stopChaseDistance = 5f;
-                if (Vector3.Distance(transform.position, PlayerController.Instance.transform.position) > stopChaseDistance)
+                if (Vector3.Distance(startingPosition, PlayerController.Instance.transform.position) > roamRadius + 1)
                 {
                     // Too far, stop chasing
-                    state = State.Stationary;
+                    state = State.Return;
                 }
                 break;
             case State.Stationary:
                 FindTarget();
                 break;
+            case State.Return:
+                pathfindingMovement.MoveTo(startingPosition);
+                // Reached distance
+                float distance = .5f;
+                if (Vector3.Distance(startingPosition, transform.position) > distance)
+                {
+                    // Too far, stop chasing
+                    state = State.Roaming;
+                }
+                FindTarget();
+                return;
         }
     }
 
@@ -95,8 +106,8 @@ public class MonsterSimpleAI : MonoBehaviour
     {
         if (PlayerController.Instance == null) return;
 
-        float targetRange = 5f;
-        if (Vector3.Distance(transform.position, PlayerController.Instance.transform.position) < targetRange)
+        // Searches for target from center
+        if (Vector3.Distance(startingPosition, PlayerController.Instance.transform.position) < roamRadius + 1)
         {
             state = State.ChaseTarget;
         }
@@ -121,7 +132,6 @@ public class MonsterSimpleAI : MonoBehaviour
     {
         roamPosition = GetRoamingPosition();
         StartCoroutine(RoamTimer());
-        Debug.Log(roamPosition);
         spawned = true;
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MonsterPathfindingMovement : MonoBehaviour
 {
-    private const float SPEED = 5f;
+    private const float SPEED = 3f;
 
     private MonsterMain monsterMain;
     private List<Vector3> pathVectorList;
