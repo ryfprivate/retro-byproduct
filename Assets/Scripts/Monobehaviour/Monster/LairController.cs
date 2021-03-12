@@ -23,6 +23,9 @@ public class LairController : MonoBehaviour
         for (int i = 0; i < numMonsters; i++)
         {
             GameObject monster = Instantiate(monsterPrefab, spawnLocation, Quaternion.Euler(Vector3.zero), transform);
+            monster.GetComponent<MonsterSimpleAI>().SetRoamRadius(lairRadius);
+            monster.GetComponent<MonsterSimpleAI>().SetStartingPosition(spawnLocation);
+            monster.GetComponent<MonsterSimpleAI>().StartRoaming();
         }
     }
 }

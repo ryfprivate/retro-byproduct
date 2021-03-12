@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMain : Character
+public class PlayerMain : Player
 {
 
     public PlayerController PlayerController { get; private set; }

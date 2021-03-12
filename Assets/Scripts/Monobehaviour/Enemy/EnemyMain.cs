@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMain : Character
+public class EnemyMain : Player
 {
     public Rigidbody2D EnemyRigidbody2D { get; private set; }
 

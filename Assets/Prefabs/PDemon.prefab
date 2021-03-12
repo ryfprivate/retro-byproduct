@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 926316420184307132}
   - component: {fileID: 926316420184307134}
   - component: {fileID: 926316420184307135}
+  - component: {fileID: 5228095282310772198}
   - component: {fileID: 926316420184307122}
   - component: {fileID: 926316420184307120}
   m_Layer: 0
@@ -47,6 +48,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e911e84e27f1528459b5942631804451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meleeForm: {fileID: 0}
+  bowmanForm: {fileID: 0}
+  currentSprite: {fileID: 956817993891716756}
+  animator: {fileID: 956817993891716757}
+  aimSprite: {fileID: 0}
+  aimTransform: {fileID: 0}
+  moveVector: {x: 0, y: 0, z: 0}
+  aimVector: {x: 0, y: 0}
+  firePoint: {fileID: 0}
+  bulletPrefab: {fileID: 0}
+  bulletForce: 20
+  reloadTime: 0.5
 --- !u!114 &926316420184307135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,6 +70,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfc0eebc745e2e0469076a7e15654980, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5228095282310772198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926316420184307133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dd3da520454cbd479aac596b987d5af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!50 &926316420184307122
