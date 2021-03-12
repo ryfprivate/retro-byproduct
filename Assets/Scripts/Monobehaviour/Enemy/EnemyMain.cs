@@ -6,10 +6,9 @@ public class EnemyMain : Character
 {
     public Rigidbody2D EnemyRigidbody2D { get; private set; }
 
-    public Vector3 moveVector;
-
     void Awake()
     {
+        base.OnAwake();
         EnemyRigidbody2D = GetComponent<Rigidbody2D>();
     }
 
@@ -21,8 +20,5 @@ public class EnemyMain : Character
     void Update()
     {
         base.OnUpdate();
-        animator.SetFloat("Horizontal", moveVector.x);
-        animator.SetFloat("Vertical", moveVector.y);
-        animator.SetFloat("Speed", moveVector.sqrMagnitude);
     }
 }

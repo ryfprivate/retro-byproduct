@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using CodeMonkey.Utils;
 
-public class EnemyAI : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
     private enum State
     {
@@ -65,12 +65,12 @@ public class EnemyAI : MonoBehaviour
                 FindTarget();
                 break;
             case State.ChaseTarget:
-                if (Player.Instance == null) break;
-                Vector3 direction = (Player.Instance.transform.position - transform.position).normalized;
+                if (PlayerController.Instance == null) break;
+                Vector3 direction = (PlayerController.Instance.transform.position - transform.position).normalized;
                 pathfindingMovement.MoveTo(transform.position + direction);
 
                 float stopChaseDistance = 5f;
-                if (Vector3.Distance(transform.position, Player.Instance.transform.position) > stopChaseDistance)
+                if (Vector3.Distance(transform.position, PlayerController.Instance.transform.position) > stopChaseDistance)
                 {
                     // Too far, stop chasing
                     state = State.Stationary;
@@ -98,10 +98,10 @@ public class EnemyAI : MonoBehaviour
 
     private void FindTarget()
     {
-        if (Player.Instance == null) return;
+        if (PlayerController.Instance == null) return;
 
         float targetRange = 5f;
-        if (Vector3.Distance(transform.position, Player.Instance.transform.position) < targetRange)
+        if (Vector3.Distance(transform.position, PlayerController.Instance.transform.position) < targetRange)
         {
             state = State.ChaseTarget;
         }

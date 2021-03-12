@@ -782,7 +782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb1591bab9e94fa49b8fb07dec3b8aec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 4415295625483386873, guid: 0c4ad02e9ef976c4eaa7e3f86520dfc5, type: 3}
+  playerPrefab: {fileID: 3802101465666840501, guid: d83a3026a40d705428347f2194e27e9f, type: 3}
   enemyPrefab: {fileID: 4268221577714459016, guid: a5b560ff27db4c6498175a6ddff2be0d, type: 3}
   baseTilemap: {fileID: 1852111909}
   spawnTilemap: {fileID: 553379016}

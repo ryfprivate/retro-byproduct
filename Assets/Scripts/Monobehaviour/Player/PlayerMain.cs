@@ -2,24 +2,47 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMain : MonoBehaviour
+public class PlayerMain : Character
 {
 
-    public Player Player { get; private set; }
+    public PlayerController PlayerController { get; private set; }
     // public PlayerSwapAimNormal PlayerSwapAimNormal { get; private set; }
     // public PlayerMovementHandler PlayerMovementHandler { get; private set; }
     // public PlayerDodgeRoll PlayerDodgeRoll { get; private set; }
 
     public Rigidbody2D PlayerRigidbody2D { get; private set; }
 
+    public GameControls controls;
+
+    void OnEnable()
+    {
+        controls.Enable();
+    }
+
+    void onDisable()
+    {
+        controls.Disable();
+    }
+
     void Awake()
     {
-        Player = GetComponent<Player>();
+        base.OnAwake();
+        controls = new GameControls();
+        PlayerController = GetComponent<PlayerController>();
         // PlayerSwapAimNormal = GetComponent<PlayerSwapAimNormal>();
         // PlayerMovementHandler = GetComponent<PlayerMovementHandler>();
         // PlayerDodgeRoll = GetComponent<PlayerDodgeRoll>();
 
         PlayerRigidbody2D = GetComponent<Rigidbody2D>();
+    }
+
+    void Start() {
+        base.OnStart();
+        controls.Player.Attack.performed += _ => Attack();
+    }
+
+    void Update() {
+        base.OnUpdate();
     }
 
 }

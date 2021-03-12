@@ -6,7 +6,7 @@
             "id": "9ab1ae04-b169-4c12-a095-c47cfc42da0c",
             "actions": [
                 {
-                    "name": "Shoot",
+                    "name": "Attack",
                     "type": "PassThrough",
                     "id": "390390b6-5b1e-4e31-9f21-1d43162f24f6",
                     "expectedControlType": "Button",
@@ -54,7 +54,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Shoot",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -65,7 +65,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Shoot",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
