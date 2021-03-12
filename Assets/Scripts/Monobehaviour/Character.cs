@@ -10,6 +10,10 @@ public class Character : MonoBehaviour
         Bowman
     }
 
+    private Vector2[] directions = new Vector2[] 
+        { new Vector2(0, 0), new Vector2(0.7f, -0.7f), new Vector2(1, 0), new Vector2(0.7f, 0.7f), 
+        new Vector2(0, 1), new Vector2(-0.7f, 0.7f), new Vector2(-1, 0), new Vector2(-0.7f, -0.7f) };
+
     public GameObject meleeForm;
     public GameObject bowmanForm;
 
@@ -27,7 +31,7 @@ public class Character : MonoBehaviour
     public GameObject bulletPrefab;
 
     public float bulletForce = 20f;
-    public float reloadTime = 0.1f;
+    public float reloadTime = 0.5f;
 
     private bool canAttack = true;
 
@@ -45,7 +49,10 @@ public class Character : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        health -= 10f;
+        GameObject incoming = col.collider.gameObject;
+        if (incoming.tag == "Damage") {
+                    health -= 10f;
+        }
     }
 
     public void OnAwake() {
@@ -55,7 +62,7 @@ public class Character : MonoBehaviour
     public void OnStart()
     {
         health = 100f;
-        Debug.Log("character" + health);
+        // Debug.Log("character" + health);
     }
 
     public void OnUpdate()
@@ -82,7 +89,9 @@ public class Character : MonoBehaviour
 
         switch (type) {
             case Type.Melee:
-                Debug.Log("melee attack");
+
+                Debug.Log("melee attack " + aimVector);
+
                 break;
             case Type.Bowman:
                 GameObject g = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
