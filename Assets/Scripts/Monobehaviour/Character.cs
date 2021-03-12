@@ -63,6 +63,8 @@ public class Character : MonoBehaviour
         animator.SetFloat("Horizontal", moveVector.x);
         animator.SetFloat("Vertical", moveVector.y);
         animator.SetFloat("Speed", moveVector.sqrMagnitude);
+        animator.SetFloat("AimH", aimVector.x);
+        animator.SetFloat("AimV", aimVector.y);
 
         if (health <= 0)
         {
