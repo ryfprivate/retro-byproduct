@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class MonsterPathfindingMovement : MonoBehaviour
 {
-    private const float SPEED = 3f;
-
     private MonsterMain monsterMain;
     private List<Vector3> pathVectorList;
     private int currentPathIndex;
@@ -23,7 +21,7 @@ public class MonsterPathfindingMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        monsterMain.MonsterRigidbody2D.velocity = monsterMain.moveVector * SPEED;
+        monsterMain.MonsterRigidbody2D.velocity = monsterMain.moveVector * monsterMain.moveSpeed;
     }
 
     private void HandleMovement()

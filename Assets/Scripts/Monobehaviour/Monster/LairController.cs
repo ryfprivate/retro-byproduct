@@ -58,6 +58,8 @@ public class LairController : MonoBehaviour
         {
             GameObject monster = Instantiate(monsterPrefab, spawnLocation, Quaternion.Euler(Vector3.zero), transform);
             monster.GetComponent<MonsterMain>().LairController = this;
+            monster.GetComponent<MonsterMain>().health += 30f;
+            monster.GetComponent<MonsterMain>().moveSpeed += 0.2f;
             monster.GetComponent<MonsterSimpleAI>().SetRoamRadius(lairRadius);
             monster.GetComponent<MonsterSimpleAI>().SetStartingPosition(spawnLocation);
             monster.GetComponent<MonsterSimpleAI>().StartRoaming();
@@ -67,6 +69,9 @@ public class LairController : MonoBehaviour
         {
             GameObject pirate = Instantiate(piratePrefab, spawnLocation, Quaternion.Euler(Vector3.zero), transform);
             pirate.GetComponent<MonsterMain>().LairController = this;
+            pirate.GetComponent<MonsterMain>().reloadTime -= 0.2f;
+            pirate.GetComponent<MonsterMain>().health += 20f;
+            pirate.GetComponent<MonsterMain>().moveSpeed += 0.2f;
             pirate.GetComponent<PirateAI>().SetRoamRadius(lairRadius);
             pirate.GetComponent<PirateAI>().SetStartingPosition(spawnLocation);
             pirate.GetComponent<PirateAI>().StartRoaming();

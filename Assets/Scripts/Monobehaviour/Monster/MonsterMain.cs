@@ -9,10 +9,13 @@ public class MonsterMain : Character
 
     public LairController LairController { get; set; }
 
+    public float moveSpeed;
+
     void Awake()
     {
         MonsterSimpleAI = GetComponent<MonsterSimpleAI>();
         MonsterRigidbody2D = GetComponent<Rigidbody2D>();
+        moveSpeed = 3f;
     }
 
     void Start()
