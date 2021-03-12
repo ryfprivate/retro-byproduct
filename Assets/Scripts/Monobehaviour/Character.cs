@@ -11,8 +11,25 @@ public class Character : MonoBehaviour
     public SpriteRenderer currentSprite;
     public Animator animator;
 
+    public SpriteRenderer aimSprite;
+    public Transform firePoint;
+    public Vector2 aimVector;
+    public Transform aimTransform;
+    public GameObject punchPrefab;
+
     public Vector3 moveVector;
-    private float health;
+    public float health;
+
+    public float reloadTime = 3f;
+    public bool canAttack = true;
+
+    public IEnumerator Reload()
+    {
+        aimSprite.color = new Color(1f, 1f, 1f, 0f);
+        yield return new WaitForSeconds(reloadTime);
+        aimSprite.color = new Color(1f, 1f, 1f, 1f);
+        canAttack = true;
+    }
 
     void OnCollisionEnter2D(Collision2D col)
     {
@@ -23,17 +40,19 @@ public class Character : MonoBehaviour
         }
     }
 
-    public void OnStart()
+    public virtual void OnStart()
     {
         health = 100f;
         // Debug.Log("character" + health);
     }
 
-    public void OnUpdate()
+    public virtual void OnUpdate()
     {
         animator.SetFloat("Horizontal", moveVector.x);
         animator.SetFloat("Vertical", moveVector.y);
         animator.SetFloat("Speed", moveVector.sqrMagnitude);
+        animator.SetFloat("AimH", aimVector.x);
+        animator.SetFloat("AimV", aimVector.y);
 
         if (health <= 0)
         {

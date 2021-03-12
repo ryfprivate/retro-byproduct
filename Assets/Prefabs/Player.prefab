@@ -345,7 +345,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3802101465666840501}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3802101464317725459}
@@ -366,15 +366,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 113fd980082b16d47bc8ab36210bcd68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeForm: {fileID: 3748398297021055007}
-  bowmanForm: {fileID: 3802101464317725548}
   currentSprite: {fileID: 0}
   animator: {fileID: 0}
-  aimSprite: {fileID: 3802101464805352467}
-  aimTransform: {fileID: 3802101464805352556}
-  moveVector: {x: 0, y: 0, z: 0}
-  aimVector: {x: 0, y: 0}
   firePoint: {fileID: 3802101465201659439}
+  aimTransform: {fileID: 3802101464805352556}
+  punchPrefab: {fileID: 1755825456884398952, guid: d9a201690163065429568aac4c40fa13, type: 3}
+  moveVector: {x: 0, y: 0, z: 0}
+  meleeForm: {fileID: 3748398297021055007}
+  bowmanForm: {fileID: 3802101464317725548}
+  aimSprite: {fileID: 3802101464805352467}
+  aimVector: {x: 0, y: 0}
   bulletPrefab: {fileID: 3561064506258334413, guid: d2c22f03f6a0eb64ab1b507be028fdd7, type: 3}
   bulletForce: 20
   reloadTime: 0.1

@@ -13,6 +13,7 @@ public class MonsterSimpleAI : MonoBehaviour
         Return
     }
 
+    private MonsterMain MonsterMain;
     private MonsterPathfindingMovement pathfindingMovement;
 
     private Vector3 startingPosition;
@@ -39,6 +40,7 @@ public class MonsterSimpleAI : MonoBehaviour
     {
         pathfindingMovement = GetComponent<MonsterPathfindingMovement>();
         state = State.Roaming;
+        MonsterMain = GetComponent<MonsterMain>();
     }
 
     void Update()
@@ -63,7 +65,9 @@ public class MonsterSimpleAI : MonoBehaviour
                 break;
             case State.ChaseTarget:
                 if (PlayerController.Instance == null) break;
+
                 Vector3 direction = (PlayerController.Instance.transform.position - transform.position).normalized;
+                Attack(direction);
                 pathfindingMovement.MoveTo(transform.position + direction);
 
                 if (Vector3.Distance(startingPosition, PlayerController.Instance.transform.position) > roamRadius + 1)
@@ -113,9 +117,24 @@ public class MonsterSimpleAI : MonoBehaviour
         }
     }
 
-    private void Attack()
+    private void Attack(Vector3 direction)
     {
+        if (!MonsterMain.canAttack) return;
 
+        float attackRange = 1f;
+        if (Vector3.Distance(transform.position, PlayerController.Instance.transform.position) < attackRange)
+        {
+            MonsterMain.animator.SetTrigger("Attack");
+            MonsterMain.aimVector = direction;
+            float angle = Vector3.SignedAngle(new Vector2(0, -1), MonsterMain.aimVector, Vector3.forward);
+            MonsterMain.aimTransform.rotation = Quaternion.Euler(0, 0, angle);
+
+            GameObject punch = Instantiate(MonsterMain.punchPrefab, MonsterMain.firePoint.position, MonsterMain.firePoint.rotation);
+            Physics2D.IgnoreCollision(punch.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+
+            MonsterMain.canAttack = false;
+            StartCoroutine(MonsterMain.Reload());
+        }
     }
 
     public void SetRoamRadius(int radius)

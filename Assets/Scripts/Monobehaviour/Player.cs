@@ -13,45 +13,25 @@ public class Player : Character
     public GameObject meleeForm;
     public GameObject bowmanForm;
 
-    public SpriteRenderer aimSprite;
-    public Transform aimTransform;
-
-    public Vector2 aimVector;
-
     // Attacking
-    public Transform firePoint;
     public GameObject bulletPrefab;
-
-    public float bulletForce = 20f;
-    public float reloadTime = 0.5f;
-
-    private bool canAttack = true;
 
     private Type type;
 
-    IEnumerator Reload()
-    {
-        aimSprite.color = new Color(1f, 1f, 1f, 0f);
-        yield return new WaitForSeconds(reloadTime);
-        aimSprite.color = new Color(1f, 1f, 1f, 1f);
-        canAttack = true;
-    }
-
     public void OnAwake()
     {
-        SwitchToBowman();
+        SwitchToMelee();
     }
 
-    public void OnStart()
+    public override void OnStart()
     {
         base.OnStart();
+        reloadTime = 1f;
     }
 
-    public void OnUpdate()
+    public override void OnUpdate()
     {
         base.OnUpdate();
-        animator.SetFloat("AimH", aimVector.x);
-        animator.SetFloat("AimV", aimVector.y);
     }
 
     public void Attack()
@@ -63,14 +43,14 @@ public class Player : Character
         switch (type)
         {
             case Type.Melee:
-
-                Debug.Log("melee attack " + aimVector);
+                GameObject punch = Instantiate(punchPrefab, firePoint.position, firePoint.rotation);
+                Physics2D.IgnoreCollision(punch.GetComponent<Collider2D>(), GetComponent<Collider2D>());
 
                 break;
             case Type.Bowman:
-                GameObject g = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-                Physics2D.IgnoreCollision(g.GetComponent<Collider2D>(), GetComponent<Collider2D>());
-                g.SetActive(true);
+                GameObject arrow = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                Physics2D.IgnoreCollision(arrow.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+                arrow.SetActive(true);
                 break;
         }
 
