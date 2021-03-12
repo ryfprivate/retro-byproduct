@@ -138,6 +138,7 @@ MonoBehaviour:
   firePoint: {fileID: 4113759810353738992}
   aimVector: {x: 0, y: 0}
   aimTransform: {fileID: 2733169456692492938}
+  bulletPrefab: {fileID: 3561064506258334413, guid: d2c22f03f6a0eb64ab1b507be028fdd7, type: 3}
   punchPrefab: {fileID: 1755825456884398952, guid: d9a201690163065429568aac4c40fa13, type: 3}
   moveVector: {x: 0, y: 0, z: 0}
   health: 0

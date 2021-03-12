@@ -45,4 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnLocation: {x: 12.5, y: 12.5, z: 0}
   monsterPrefab: {fileID: 926316420184307133, guid: e213cf85a722a9143821937bc33ce9ed, type: 3}
+  piratePrefab: {fileID: 4540413504566812479, guid: d357490bba2a0354bb6d76623a7f0268, type: 3}
   monsters: []
+  lairRadius: 12

@@ -15,6 +15,8 @@ public class Character : MonoBehaviour
     public Transform firePoint;
     public Vector2 aimVector;
     public Transform aimTransform;
+
+    public GameObject bulletPrefab;
     public GameObject punchPrefab;
 
     public Vector3 moveVector;

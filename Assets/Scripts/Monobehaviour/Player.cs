@@ -13,9 +13,6 @@ public class Player : Character
     public GameObject meleeForm;
     public GameObject bowmanForm;
 
-    // Attacking
-    public GameObject bulletPrefab;
-
     public Type type;
 
     public void OnAwake()
