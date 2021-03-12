@@ -42,12 +42,17 @@ public class Character : MonoBehaviour
         {
             GameObject parent = incoming.GetComponent<Damage>().GetParent();
             float damageDealt = parent.GetComponent<Character>().damage;
+            if (gameObject.tag == "Monster" && parent.tag == "Monster") return;
             // Debug.Log("damage: " + damageDealt + " from " + parent);
             health -= damageDealt;
             if (health <= 0)
             {
                 if (gameObject.tag == "Monster") {
                     GetComponent<MonsterMain>().LairController.Dead();
+                }
+
+                if (gameObject.tag == "Player") {
+                    GameController.Instance.Restart();
                 }
 
                 if (parent.tag == "Player") {

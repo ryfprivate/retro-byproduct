@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 using CodeMonkey.Utils;
 
 public class GameController : MonoBehaviour
@@ -161,5 +162,10 @@ public class GameController : MonoBehaviour
                 lairTilemap.SetTile(location, lairTile);
             }
         }
+    }
+
+    public void Restart() {
+        Scene scene = SceneManager.GetActiveScene(); 
+        SceneManager.LoadScene(scene.name);
     }
 }
