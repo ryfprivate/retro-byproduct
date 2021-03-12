@@ -77,7 +77,6 @@ public class EnemyController : MonoBehaviour
                 }
                 break;
             case State.Stationary:
-                Debug.Log("stationary");
                 FindTarget();
                 break;
         }
@@ -105,5 +104,9 @@ public class EnemyController : MonoBehaviour
         {
             state = State.ChaseTarget;
         }
+    }
+
+    private void Attack() {
+
     }
 }
