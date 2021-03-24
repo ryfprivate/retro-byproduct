@@ -31,9 +31,16 @@ public class GameController : MonoBehaviour
     private GameControls controls;
     private Pathfinding _pathfinding;
 
+    // Spawning
+    private List<Vector3> lairLocations = new List<Vector3>();
+    private List<Vector3> spawnLocations = new List<Vector3>();
+    private Vector3 spawnOffset = new Vector3(.5f, .5f, 0);
     private int numEnemies;
 
-    private int mapSize = 200;
+    private int mapSize = 50;
+
+    // temp
+    public GameObject simpleLairPrefab;
 
     void OnEnable()
     {
@@ -62,16 +69,12 @@ public class GameController : MonoBehaviour
         numEnemies = 4;
         // Adds all spawn locations to a list
         // Adds all collidable tiles as obstacles in the pathfinding grid
-        List<Vector3> spawnLocations = SetUpTiles();
+        spawnLocations = SetUpTiles();
 
         // Spawns all monster lairs
         SpawnLairs();
 
-        // Spawn player on random spawn location
-        Vector3 offset = new Vector3(.5f, .5f, 0);
-        // Adds offset to position to spawn in middle of cell
-        Vector3 playerSpawnPosition = spawnLocations[Random.Range(0, spawnLocations.Count)] + offset;
-        Instantiate(playerPrefab, playerSpawnPosition, Quaternion.Euler(Vector3.zero));
+        SpawnPlayer();
 
         // Spawns enemies on a random spawn location
         // for (int i = 0; i < numEnemies; i++)
@@ -106,19 +109,22 @@ public class GameController : MonoBehaviour
     // }
 
     private List<Vector3> SetUpTiles() {
-        List<Vector3> spawnLocations = new List<Vector3>();
-
         baseTilemap.CompressBounds();
         BoundsInt bounds = baseTilemap.cellBounds;
         Debug.Log(bounds);
+        // Tilemaps
         TileBase[] spawnTiles = spawnTilemap.GetTilesBlock(bounds);
         TileBase[] collidableTiles = collidableTilemap.GetTilesBlock(bounds);
-        for (int x = 0; x < bounds.size.x; x++)
+        TileBase[] lairTiles = lairTilemap.GetTilesBlock(bounds);
+        // Looks at every tile in grid
+        // If its a spawn or collidle tile, stores it in an array
+        for (int x = 0; x < mapSize; x++)
         {
-            for (int y = 0; y < bounds.size.y; y++)
+            for (int y = 0; y < mapSize; y++)
             {
-                TileBase spawnTile = spawnTiles[x + y * bounds.size.x];
-                TileBase collidableTile = collidableTiles[x + y * bounds.size.x];
+                TileBase spawnTile = spawnTiles[x + y * mapSize];
+                TileBase collidableTile = collidableTiles[x + y * mapSize];
+                TileBase lairTile = lairTiles[x + y * mapSize];
 
                 if (spawnTile != null)
                 {
@@ -130,6 +136,10 @@ public class GameController : MonoBehaviour
                 {
                     _pathfinding.GetGrid().GetGridObject(x, y).isWalkable = false;
                 }
+
+                if (lairTile != null) {
+                    lairLocations.Add(new Vector3(x, y, 0));
+                }
             }
         }
 
@@ -137,17 +147,36 @@ public class GameController : MonoBehaviour
     }
 
     private void SpawnLairs() {
-        lairs = new GameObject[lairPrefabs.Length];
-        int len = lairPrefabs.Length;
-        for (int i = 0; i<len; i++) {
-            Vector3 spawnLocation = lairPrefabs[i].GetComponent<LairController>().spawnLocation;
-            // Vector3 spawnLocation = new Vector3(12.5f, 12.5f, 0) + new Vector3(0, 25f*i, 0);
-            GameObject lair = Instantiate(lairPrefabs[i], spawnLocation, Quaternion.Euler(Vector3.zero));
-            // lair.GetComponent<LairController>().spawnLocation = spawnLocation;
-            lairs[i] = lair;
-            
-            DrawLairTiles(spawnLocation, lair);
+        int numLairs = lairLocations.Count;
+        Debug.Log("num lairs " + numLairs);
+        for (int i = 0; i<numLairs; i++) {
+
+            Vector3 lairSpawnPosition = lairLocations[i] + spawnOffset;
+            Instantiate(simpleLairPrefab, lairSpawnPosition, Quaternion.Euler(Vector3.zero));
         }
+
+
+
+
+        // lairs = new GameObject[lairPrefabs.Length];
+        // int len = lairPrefabs.Length;
+        // for (int i = 0; i<len; i++) {
+        //     Vector3 spawnLocation = lairPrefabs[i].GetComponent<LairController>().spawnLocation;
+        //     // Vector3 spawnLocation = new Vector3(12.5f, 12.5f, 0) + new Vector3(0, 25f*i, 0);
+        //     GameObject lair = Instantiate(lairPrefabs[i], spawnLocation, Quaternion.Euler(Vector3.zero));
+        //     // lair.GetComponent<LairController>().spawnLocation = spawnLocation;
+        //     lairs[i] = lair;
+            
+        //     DrawLairTiles(spawnLocation, lair);
+        // }
+    }
+
+    private void SpawnPlayer() {
+        Debug.Log("num spawn " + spawnLocations.Count);
+        // Spawn player on random spawn location
+        // Adds offset to position to spawn in middle of cell
+        Vector3 playerSpawnPosition = spawnLocations[Random.Range(0, spawnLocations.Count)] + spawnOffset;
+        Instantiate(playerPrefab, playerSpawnPosition, Quaternion.Euler(Vector3.zero));
     }
 
     private void DrawLairTiles(Vector3 spawnLocation, GameObject lair) {
