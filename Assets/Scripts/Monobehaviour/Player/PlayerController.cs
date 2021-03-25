@@ -7,16 +7,18 @@ public class PlayerController : MonoBehaviour
 {
     public static PlayerController Instance { get; private set; }
 
-    private PlayerMain playerMain;
+    public PlayerMain playerMain;
 
-    public float moveSpeed = 5f;
+    public float playerSpeed;
+    public float moveSpeed;
     private int killCount;
 
     void Awake()
     {
         Instance = this;
         playerMain = GetComponent<PlayerMain>();
-        moveSpeed = 5f;
+        playerSpeed = 5f;
+        moveSpeed = playerSpeed;
         killCount = 0;
     }
 
