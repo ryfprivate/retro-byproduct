@@ -9,7 +9,7 @@ public class SimpleLair : LairController
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(monsterPrefab, transform.position, Quaternion.Euler(Vector3.zero));
+        Instantiate(monsterPrefab, transform.position, Quaternion.Euler(Vector3.zero), transform);
     }
 
     // Update is called once per frame

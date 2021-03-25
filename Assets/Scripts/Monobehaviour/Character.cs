@@ -38,6 +38,7 @@ public class Character : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col)
     {
         GameObject incoming = col.collider.gameObject;
+        Debug.Log(col);
         if (incoming.tag == "Damage")
         {
             GameObject parent = incoming.GetComponent<Damage>().GetParent();

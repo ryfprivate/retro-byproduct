@@ -39,7 +39,13 @@ public class SimpleMonsterAI : MonoBehaviour
     {
         MonsterMain = GetComponent<MonsterMain>();
         pathfindingMovement = GetComponent<MonsterPathfindingMovement>();
+    }
+
+    void Start() {
         state = State.Roaming;
+        SetRoamRadius(3);
+        SetStartingPosition(transform.position);
+        StartRoaming();
     }
 
     void Update()
