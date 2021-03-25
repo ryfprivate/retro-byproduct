@@ -17,7 +17,7 @@ public class Bullet : Damage
         StartCoroutine(DestroyBulletAfterTime());
     }
 
-    void Update()
+    void FixedUpdate()
     {
         transform.Translate(Vector3.down * speed * Time.deltaTime);
     }

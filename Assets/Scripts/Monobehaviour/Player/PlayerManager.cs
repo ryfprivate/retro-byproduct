@@ -8,10 +8,9 @@ public class PlayerManager : Player
     public static PlayerManager Instance { get; private set; }
     public Rigidbody2D Rigidbody2D { get; private set; }
 
-    public GameObject crosshair;
-
     public float playerSpeed;
     public float moveSpeed;
+
     private int killCount;
 
     void Awake()
@@ -35,10 +34,16 @@ public class PlayerManager : Player
     void Update()
     {
         base.OnUpdate();
+
         moveVector = GameManager.Instance.Controls.Player.Movement.ReadValue<Vector2>();
-        aimVector = GameManager.Instance.Controls.Player.Aim.ReadValue<Vector2>();
-        float angle = Vector3.SignedAngle(new Vector2(0, -1), aimVector, Vector3.forward);
-        aimTransform.rotation = Quaternion.Euler(0, 0, angle);
+
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        Vector3 difference = mousePosition - transform.position;
+        float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg + 90;
+        aimTransform.rotation = Quaternion.Euler(0, 0, rotationZ);
+        // aimVector = mousePosition;
+        // float angle = Vector3.SignedAngle(new Vector2(0, -1), aimVector, Vector3.forward);
+        // aimTransform.rotation = Quaternion.Euler(aimVector);
 
         Upgrade();
     }

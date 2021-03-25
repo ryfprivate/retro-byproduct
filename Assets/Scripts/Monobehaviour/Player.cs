@@ -17,7 +17,7 @@ public class Player : Character
 
     public void OnAwake()
     {
-        SwitchToMelee();
+        SwitchToBowman();
     }
 
     public override void OnStart()
