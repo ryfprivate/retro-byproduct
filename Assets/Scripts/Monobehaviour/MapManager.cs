@@ -28,19 +28,19 @@ public class MapManager : MonoBehaviour
 
     void Update()
     {
-        if (PlayerController.Instance != null)
+        if (PlayerManager.Instance != null)
         {
-            Vector3Int gridPosition = baseTilemap.WorldToCell(PlayerController.Instance.transform.position);
+            Vector3Int gridPosition = baseTilemap.WorldToCell(PlayerManager.Instance.transform.position);
             TileBase currentTile = baseTilemap.GetTile(gridPosition);
             float walkingSpeed = dataFromTiles[currentTile].walkingSpeed;
             float poisonous = dataFromTiles[currentTile].poisonous;
 
             print("walking speed on: " + currentTile + walkingSpeed);
-            PlayerController.Instance.moveSpeed = PlayerController.Instance.playerSpeed * walkingSpeed;
+            PlayerManager.Instance.moveSpeed = PlayerManager.Instance.playerSpeed * walkingSpeed;
 
             if (poisonous > 0)
             {
-                PlayerController.Instance.playerMain.health -= 0.1f;
+                PlayerManager.Instance.health -= 0.1f;
             }
         }
     }

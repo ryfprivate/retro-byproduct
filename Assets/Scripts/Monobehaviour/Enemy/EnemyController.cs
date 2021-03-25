@@ -65,12 +65,12 @@ public class EnemyController : MonoBehaviour
                 FindTarget();
                 break;
             case State.ChaseTarget:
-                if (PlayerController.Instance == null) break;
-                Vector3 direction = (PlayerController.Instance.transform.position - transform.position).normalized;
+                if (PlayerManager.Instance == null) break;
+                Vector3 direction = (PlayerManager.Instance.transform.position - transform.position).normalized;
                 pathfindingMovement.MoveTo(transform.position + direction);
 
                 float stopChaseDistance = 5f;
-                if (Vector3.Distance(transform.position, PlayerController.Instance.transform.position) > stopChaseDistance)
+                if (Vector3.Distance(transform.position, PlayerManager.Instance.transform.position) > stopChaseDistance)
                 {
                     // Too far, stop chasing
                     state = State.Stationary;
@@ -97,10 +97,10 @@ public class EnemyController : MonoBehaviour
 
     private void FindTarget()
     {
-        if (PlayerController.Instance == null) return;
+        if (PlayerManager.Instance == null) return;
 
         float targetRange = 5f;
-        if (Vector3.Distance(transform.position, PlayerController.Instance.transform.position) < targetRange)
+        if (Vector3.Distance(transform.position, PlayerManager.Instance.transform.position) < targetRange)
         {
             state = State.ChaseTarget;
         }

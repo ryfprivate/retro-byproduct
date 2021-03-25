@@ -53,11 +53,11 @@ public class Character : MonoBehaviour
                 }
 
                 if (gameObject.tag == "Player") {
-                    GameController.Instance.Restart();
+                    GameManager.Instance.Restart();
                 }
 
                 if (parent.tag == "Player") {
-                    PlayerController.Instance.IncrementKill();
+                    PlayerManager.Instance.IncrementKill();
                 }
                 Destroy(gameObject);
             }

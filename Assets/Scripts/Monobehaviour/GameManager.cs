@@ -6,9 +6,10 @@ using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
 using CodeMonkey.Utils;
 
-public class GameController : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    public static GameController Instance { get; private set; }
+    public static GameManager Instance { get; private set; }
+    public GameControls Controls { get; private set; }
 
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
@@ -28,7 +29,6 @@ public class GameController : MonoBehaviour
     public Tile pathTile;
 
     // Class Instances
-    private GameControls controls;
     private Pathfinding _pathfinding;
 
     // Spawning
@@ -44,22 +44,22 @@ public class GameController : MonoBehaviour
 
     void OnEnable()
     {
-        controls.Enable();
-        controls.Player.LeftClick.performed += ctx => HandleLeftClick(ctx);
-        // controls.Player.RightClick.performed += ctx => HandleRightClick(ctx);
+        Controls.Enable();
+        Controls.Player.LeftClick.performed += ctx => HandleLeftClick(ctx);
+        // Controls.Player.RightClick.performed += ctx => HandleRightClick(ctx);
     }
     void OnDisable()
     {
-        controls.Disable();
-        controls.Player.LeftClick.performed -= ctx => HandleLeftClick(ctx);
-        // controls.Player.RightClick.performed -= ctx => HandleRightClick(ctx);
+        Controls.Disable();
+        Controls.Player.LeftClick.performed -= ctx => HandleLeftClick(ctx);
+        // Controls.Player.RightClick.performed -= ctx => HandleRightClick(ctx);
     }
 
     void Awake()
     {
         Instance = this;
 
-        controls = new GameControls();
+        Controls = new GameControls();
         _pathfinding = new Pathfinding(mapSize, mapSize);
     }
 
@@ -108,7 +108,8 @@ public class GameController : MonoBehaviour
     //     Debug.Log(grid.GetGridObject(worldPosition));
     // }
 
-    private List<Vector3> SetUpTiles() {
+    private List<Vector3> SetUpTiles()
+    {
         baseTilemap.CompressBounds();
         BoundsInt bounds = baseTilemap.cellBounds;
         Debug.Log(bounds);
@@ -137,7 +138,8 @@ public class GameController : MonoBehaviour
                     _pathfinding.GetGrid().GetGridObject(x, y).isWalkable = false;
                 }
 
-                if (lairTile != null) {
+                if (lairTile != null)
+                {
                     lairLocations.Add(new Vector3(x, y, 0));
                 }
             }
@@ -146,10 +148,12 @@ public class GameController : MonoBehaviour
         return spawnLocations;
     }
 
-    private void SpawnLairs() {
+    private void SpawnLairs()
+    {
         int numLairs = lairLocations.Count;
         Debug.Log("num lairs " + numLairs);
-        for (int i = 0; i<numLairs; i++) {
+        for (int i = 0; i < numLairs; i++)
+        {
 
             Vector3 lairSpawnPosition = lairLocations[i] + spawnOffset;
             Instantiate(simpleLairPrefab, lairSpawnPosition, Quaternion.Euler(Vector3.zero));
@@ -166,12 +170,13 @@ public class GameController : MonoBehaviour
         //     GameObject lair = Instantiate(lairPrefabs[i], spawnLocation, Quaternion.Euler(Vector3.zero));
         //     // lair.GetComponent<LairController>().spawnLocation = spawnLocation;
         //     lairs[i] = lair;
-            
+
         //     DrawLairTiles(spawnLocation, lair);
         // }
     }
 
-    private void SpawnPlayer() {
+    private void SpawnPlayer()
+    {
         Debug.Log("num spawn " + spawnLocations.Count);
         // Spawn player on random spawn location
         // Adds offset to position to spawn in middle of cell
@@ -179,22 +184,26 @@ public class GameController : MonoBehaviour
         Instantiate(playerPrefab, playerSpawnPosition, Quaternion.Euler(Vector3.zero));
     }
 
-    private void DrawLairTiles(Vector3 spawnLocation, GameObject lair) {
+    private void DrawLairTiles(Vector3 spawnLocation, GameObject lair)
+    {
         lairTilemap.SetTile(Vector3Int.FloorToInt(spawnLocation), lairTile);
 
         // int lairRadius = lair.GetComponent<LairController>().lairRadius;
         // Change back to top later
         int lairRadius = 1;
-        for (int x = -lairRadius; x<lairRadius+1; x++) {
-            for (int y = -lairRadius; y<lairRadius+1; y++) {
+        for (int x = -lairRadius; x < lairRadius + 1; x++)
+        {
+            for (int y = -lairRadius; y < lairRadius + 1; y++)
+            {
                 Vector3Int location = Vector3Int.FloorToInt(spawnLocation) + new Vector3Int(x, y, 0);
                 lairTilemap.SetTile(location, lairTile);
             }
         }
     }
 
-    public void Restart() {
-        Scene scene = SceneManager.GetActiveScene(); 
+    public void Restart()
+    {
+        Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
     }
 }

@@ -64,13 +64,13 @@ public class PirateAI : MonoBehaviour
                 FindTarget();
                 break;
             case State.ChaseTarget:
-                if (PlayerController.Instance == null) break;
+                if (PlayerManager.Instance == null) break;
 
-                Vector3 direction = (PlayerController.Instance.transform.position - transform.position).normalized;
+                Vector3 direction = (PlayerManager.Instance.transform.position - transform.position).normalized;
                 Attack(direction);
                 pathfindingMovement.MoveTo(transform.position + direction);
 
-                if (Vector3.Distance(startingPosition, PlayerController.Instance.transform.position) > roamRadius + 1.5f)
+                if (Vector3.Distance(startingPosition, PlayerManager.Instance.transform.position) > roamRadius + 1.5f)
                 {
                     // Too far, stop chasing
                     state = State.Return;
@@ -108,10 +108,10 @@ public class PirateAI : MonoBehaviour
 
     private void FindTarget()
     {
-        if (PlayerController.Instance == null) return;
+        if (PlayerManager.Instance == null) return;
 
         // Searches for target from center
-        if (Vector3.Distance(startingPosition, PlayerController.Instance.transform.position) < roamRadius + 1.5f)
+        if (Vector3.Distance(startingPosition, PlayerManager.Instance.transform.position) < roamRadius + 1.5f)
         {
             state = State.ChaseTarget;
         }
@@ -122,7 +122,7 @@ public class PirateAI : MonoBehaviour
         if (!MonsterMain.canAttack) return;
 
         float attackRange = 10f;
-        if (Vector3.Distance(transform.position, PlayerController.Instance.transform.position) < attackRange)
+        if (Vector3.Distance(transform.position, PlayerManager.Instance.transform.position) < attackRange)
         {
             MonsterMain.animator.SetTrigger("Attack");
             MonsterMain.aimVector = direction;
