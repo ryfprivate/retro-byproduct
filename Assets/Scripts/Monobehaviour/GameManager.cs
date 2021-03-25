@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
         spawnLocations = SetUpTiles();
 
         // Spawns all monster lairs
-        SpawnLairs();
+        // SpawnLairs();
 
         SpawnPlayer();
     }
@@ -75,6 +75,11 @@ public class GameManager : MonoBehaviour
     {
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
+    }
+
+    public GameObject Spawn(GameObject obj, Vector3 pos)
+    {
+        return Instantiate(obj, pos, Quaternion.Euler(Vector3.zero));
     }
 
     private List<Vector3> SetUpTiles()
@@ -125,7 +130,7 @@ public class GameManager : MonoBehaviour
         {
 
             Vector3 lairSpawnPosition = lairLocations[i] + spawnOffset;
-            Instantiate(simpleLairPrefab, lairSpawnPosition, Quaternion.Euler(Vector3.zero));
+            Spawn(simpleLairPrefab, lairSpawnPosition);
         }
     }
 
@@ -135,6 +140,6 @@ public class GameManager : MonoBehaviour
         // Spawn player on random spawn location
         // Adds offset to position to spawn in middle of cell
         Vector3 playerSpawnPosition = spawnLocations[Random.Range(0, spawnLocations.Count)] + spawnOffset;
-        Instantiate(playerPrefab, playerSpawnPosition, Quaternion.Euler(Vector3.zero));
+        Spawn(playerPrefab, playerSpawnPosition);
     }
 }

@@ -9,6 +9,5 @@ public class CrosshairManager : MonoBehaviour
     {
         Vector3 pos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         transform.position = new Vector3(pos.x, pos.y, 0);
-        Debug.Log(Mouse.current.position.ReadValue());
     }
 }

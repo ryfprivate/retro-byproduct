@@ -35,7 +35,6 @@ public class MapManager : MonoBehaviour
             float walkingSpeed = dataFromTiles[currentTile].walkingSpeed;
             float poisonous = dataFromTiles[currentTile].poisonous;
 
-            print("walking speed on: " + currentTile + walkingSpeed);
             PlayerManager.Instance.moveSpeed = PlayerManager.Instance.playerSpeed * walkingSpeed;
 
             if (poisonous > 0)

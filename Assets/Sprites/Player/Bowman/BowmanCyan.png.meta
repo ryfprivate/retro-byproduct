@@ -70,34 +70,34 @@ TextureImporter:
     second: BowmanCyan_21
   - first:
       213: 2689176209427745605
-    second: BowmanCyan_23
+    second: BowmanCyan_22
   - first:
       213: 2490019535005172027
-    second: BowmanCyan_22
+    second: BowmanCyan_23
   - first:
       213: 5528356697308006071
-    second: BowmanCyan_23
+    second: BowmanCyan_24
   - first:
       213: -8420519111421811357
-    second: BowmanCyan_22
+    second: BowmanCyan_25
   - first:
       213: -1453177575523890258
-    second: BowmanCyan_23
+    second: BowmanCyan_26
   - first:
       213: 663367446190579285
-    second: BowmanCyan_22
+    second: BowmanCyan_27
   - first:
       213: -3698665405578260482
-    second: BowmanCyan_23
+    second: BowmanCyan_28
   - first:
       213: -8635140496591852011
-    second: BowmanCyan_22
+    second: BowmanCyan_29
   - first:
       213: -4775969850694549270
-    second: BowmanCyan_23
+    second: BowmanCyan_30
   - first:
       213: 209474566355128392
-    second: BowmanCyan_22
+    second: BowmanCyan_31
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -212,12 +212,12 @@ TextureImporter:
       name: BowmanCyan_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 113
-        width: 12
-        height: 14
+        x: 0
+        y: 112
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -233,12 +233,12 @@ TextureImporter:
       name: BowmanCyan_1
       rect:
         serializedVersion: 2
-        x: 19
-        y: 113
-        width: 12
-        height: 15
+        x: 16
+        y: 112
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -254,12 +254,12 @@ TextureImporter:
       name: BowmanCyan_2
       rect:
         serializedVersion: 2
-        x: 35
+        x: 32
         y: 112
-        width: 12
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -275,12 +275,12 @@ TextureImporter:
       name: BowmanCyan_3
       rect:
         serializedVersion: 2
-        x: 50
-        y: 113
-        width: 12
-        height: 15
+        x: 48
+        y: 112
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -296,12 +296,12 @@ TextureImporter:
       name: BowmanCyan_4
       rect:
         serializedVersion: 2
-        x: 66
+        x: 64
         y: 112
-        width: 12
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -317,12 +317,12 @@ TextureImporter:
       name: BowmanCyan_5
       rect:
         serializedVersion: 2
-        x: 1
-        y: 97
-        width: 12
-        height: 14
+        x: 0
+        y: 96
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -338,12 +338,12 @@ TextureImporter:
       name: BowmanCyan_6
       rect:
         serializedVersion: 2
-        x: 17
-        y: 97
-        width: 12
-        height: 15
+        x: 16
+        y: 96
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -359,12 +359,12 @@ TextureImporter:
       name: BowmanCyan_7
       rect:
         serializedVersion: 2
-        x: 33
+        x: 32
         y: 96
-        width: 12
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -380,12 +380,12 @@ TextureImporter:
       name: BowmanCyan_8
       rect:
         serializedVersion: 2
-        x: 49
-        y: 97
-        width: 12
-        height: 15
+        x: 48
+        y: 96
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -401,12 +401,12 @@ TextureImporter:
       name: BowmanCyan_9
       rect:
         serializedVersion: 2
-        x: 65
+        x: 64
         y: 96
-        width: 12
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -422,12 +422,12 @@ TextureImporter:
       name: BowmanCyan_10
       rect:
         serializedVersion: 2
-        x: 2
-        y: 81
-        width: 13
-        height: 14
+        x: 0
+        y: 80
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -443,12 +443,12 @@ TextureImporter:
       name: BowmanCyan_11
       rect:
         serializedVersion: 2
-        x: 18
-        y: 81
-        width: 13
-        height: 15
+        x: 16
+        y: 80
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -464,12 +464,12 @@ TextureImporter:
       name: BowmanCyan_12
       rect:
         serializedVersion: 2
-        x: 34
+        x: 32
         y: 80
-        width: 13
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -485,12 +485,12 @@ TextureImporter:
       name: BowmanCyan_13
       rect:
         serializedVersion: 2
-        x: 50
-        y: 81
-        width: 13
-        height: 15
+        x: 48
+        y: 80
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -506,12 +506,12 @@ TextureImporter:
       name: BowmanCyan_14
       rect:
         serializedVersion: 2
-        x: 66
+        x: 64
         y: 80
-        width: 13
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -527,12 +527,12 @@ TextureImporter:
       name: BowmanCyan_15
       rect:
         serializedVersion: 2
-        x: 1
-        y: 65
-        width: 13
-        height: 14
+        x: 0
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -548,12 +548,12 @@ TextureImporter:
       name: BowmanCyan_16
       rect:
         serializedVersion: 2
-        x: 17
-        y: 65
-        width: 13
-        height: 15
+        x: 16
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -569,12 +569,12 @@ TextureImporter:
       name: BowmanCyan_17
       rect:
         serializedVersion: 2
-        x: 33
+        x: 32
         y: 64
-        width: 13
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -590,12 +590,12 @@ TextureImporter:
       name: BowmanCyan_18
       rect:
         serializedVersion: 2
-        x: 49
-        y: 65
-        width: 13
-        height: 15
+        x: 48
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -611,12 +611,12 @@ TextureImporter:
       name: BowmanCyan_19
       rect:
         serializedVersion: 2
-        x: 65
+        x: 64
         y: 64
-        width: 13
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -632,12 +632,12 @@ TextureImporter:
       name: BowmanCyan_20
       rect:
         serializedVersion: 2
-        x: 2
+        x: 0
         y: 48
-        width: 12
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -653,12 +653,12 @@ TextureImporter:
       name: BowmanCyan_21
       rect:
         serializedVersion: 2
-        x: 19
-        y: 49
-        width: 10
-        height: 15
+        x: 16
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -671,15 +671,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BowmanCyan_24
+      name: BowmanCyan_22
       rect:
         serializedVersion: 2
-        x: 18
-        y: 33
-        width: 12
-        height: 14
+        x: 32
+        y: 48
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -692,15 +692,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BowmanCyan_25
+      name: BowmanCyan_23
       rect:
         serializedVersion: 2
-        x: 34
-        y: 33
-        width: 12
-        height: 14
+        x: 0
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -713,15 +713,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BowmanCyan_26
+      name: BowmanCyan_24
       rect:
         serializedVersion: 2
-        x: 0
-        y: 16
-        width: 14
-        height: 15
+        x: 16
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -734,15 +734,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BowmanCyan_27
+      name: BowmanCyan_25
       rect:
         serializedVersion: 2
-        x: 17
-        y: 16
-        width: 13
-        height: 15
+        x: 32
+        y: 32
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -755,15 +755,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BowmanCyan_28
+      name: BowmanCyan_26
       rect:
         serializedVersion: 2
-        x: 33
+        x: 0
         y: 16
-        width: 13
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -776,15 +776,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BowmanCyan_29
+      name: BowmanCyan_27
       rect:
         serializedVersion: 2
-        x: 2
-        y: 0
-        width: 14
-        height: 15
+        x: 16
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -797,15 +797,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BowmanCyan_30
+      name: BowmanCyan_28
       rect:
         serializedVersion: 2
-        x: 18
-        y: 0
-        width: 13
-        height: 15
+        x: 32
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -818,15 +818,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BowmanCyan_31
+      name: BowmanCyan_29
       rect:
         serializedVersion: 2
-        x: 34
+        x: 0
         y: 0
-        width: 13
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -839,13 +839,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BowmanCyan_23
+      name: BowmanCyan_30
       rect:
         serializedVersion: 2
-        x: 2
-        y: 33
-        width: 12
-        height: 14
+        x: 16
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -860,12 +860,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BowmanCyan_22
+      name: BowmanCyan_31
       rect:
         serializedVersion: 2
-        x: 34
-        y: 48
-        width: 12
+        x: 32
+        y: 0
+        width: 16
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
