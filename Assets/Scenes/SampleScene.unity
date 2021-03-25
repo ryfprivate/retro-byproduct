@@ -326,6 +326,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseTilemap: {fileID: 1143603695}
+  spawnTilemap: {fileID: 553379016}
+  collidableTilemap: {fileID: 1421124560}
+  lairTilemap: {fileID: 979546020}
+  lairLocations: []
+  spawnLocations: []
   tileDatas:
   - {fileID: 11400000, guid: afdd94b96524cf14c8e147c096353170, type: 2}
   - {fileID: 11400000, guid: 09633233c5ac64f489994fce5566e521, type: 2}
@@ -363,13 +368,6 @@ MonoBehaviour:
   lairPrefabs:
   - {fileID: 1551681831385217964, guid: 1c8e70a557d37ec49b31cb92fdff8311, type: 3}
   lairs: []
-  baseTilemap: {fileID: 1143603695}
-  spawnTilemap: {fileID: 553379016}
-  collidableTilemap: {fileID: 1421124560}
-  lairTilemap: {fileID: 979546020}
-  lairTile: {fileID: 11400000, guid: 17ad31baab6208744b9939b0972e0998, type: 2}
-  pathTilemap: {fileID: 1215038959}
-  pathTile: {fileID: 11400000, guid: 479ff53a4a8a7cb42b954c620bc87772, type: 2}
   simpleLairPrefab: {fileID: 7410714881195746948, guid: cc37a6d9453b0974cab0f8639b71e282, type: 3}
 --- !u!1 &705507993
 GameObject:
