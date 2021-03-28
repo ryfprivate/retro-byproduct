@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     public GameControls Controls { get; private set; }
 
     public GameObject playerPrefab;
-    public GameObject enemyPrefab;
 
     // Monsters
     public GameObject[] lairPrefabs;
@@ -41,7 +40,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         // Spawns all monster lairs
-        // SpawnLairs();
+        SpawnLairs();
 
         SpawnPlayer();
     }
@@ -64,7 +63,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < numLairs; i++)
         {
 
-            Vector3 lairSpawnPosition = MapManager.Instance.lairLocations[i] + spawnOffset;
+            Vector3 lairSpawnPosition = MapManager.Instance.lairLocations[i];
             Spawn(simpleLairPrefab, lairSpawnPosition);
         }
     }
@@ -74,7 +73,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("num spawn " + MapManager.Instance.spawnLocations.Count);
         // Spawn player on random spawn location
         // Adds offset to position to spawn in middle of cell
-        Vector3 playerSpawnPosition = MapManager.Instance.spawnLocations[Random.Range(0, MapManager.Instance.spawnLocations.Count)] + spawnOffset;
+        Vector3 playerSpawnPosition = MapManager.Instance.spawnLocations[Random.Range(0, MapManager.Instance.spawnLocations.Count)];
         Spawn(playerPrefab, playerSpawnPosition);
     }
 }

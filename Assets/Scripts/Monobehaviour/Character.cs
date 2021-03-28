@@ -9,17 +9,14 @@ public class Character : MonoBehaviour
         new Vector2(0, 1), new Vector2(-0.7f, 0.7f), new Vector2(-1, 0), new Vector2(-0.7f, -0.7f) };
 
     public GameObject currentGraphics;
-    public SpriteRenderer currentSprite;
-    public Animator animator;
 
-    public SpriteRenderer aimSprite;
+    public GameObject aimObject;
     public Transform firePoint;
-    public Vector2 aimVector;
-    public Transform aimTransform;
 
     public GameObject bulletPrefab;
     public GameObject punchPrefab;
 
+    public Vector2 aimVector;
     public Vector3 moveVector;
     public float health;
 
@@ -30,9 +27,9 @@ public class Character : MonoBehaviour
 
     public IEnumerator Reload()
     {
-        aimSprite.color = new Color(1f, 1f, 1f, 0f);
+        aimObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0f);
         yield return new WaitForSeconds(reloadTime);
-        aimSprite.color = new Color(1f, 1f, 1f, 1f);
+        aimObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
         canAttack = true;
     }
 

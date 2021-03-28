@@ -70,6 +70,17 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "513c8d8a-8bb5-4cd9-aa52-1ca68e2a685d",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "Keyboard",
                     "id": "8b722471-cb94-4bfe-8f1a-19af56cd655b",
                     "path": "2DVector",

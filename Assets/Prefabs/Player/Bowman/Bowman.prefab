@@ -78,14 +78,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentGraphics: {fileID: 7668826654467196211}
-  currentSprite: {fileID: 7668826654467196172}
-  animator: {fileID: 7668826654467196173}
-  aimSprite: {fileID: 4845025408445776905}
+  aimObject: {fileID: 6236740556470462200}
   firePoint: {fileID: 2438200427019724065}
-  aimVector: {x: 0, y: 0}
-  aimTransform: {fileID: 2863851121714010063}
   bulletPrefab: {fileID: 3561064506258334413, guid: d2c22f03f6a0eb64ab1b507be028fdd7, type: 3}
   punchPrefab: {fileID: 0}
+  aimVector: {x: 0, y: 0}
   moveVector: {x: 0, y: 0, z: 0}
   health: 0
   reloadTime: 3
@@ -294,15 +291,5 @@ GameObject:
 --- !u!4 &7668826654467196210 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1222952952695666188, guid: 84ef24b12de9e9c49b2683ec3eeaad8f, type: 3}
-  m_PrefabInstance: {fileID: 8833221387324764990}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &7668826654467196172 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 1222952952695666226, guid: 84ef24b12de9e9c49b2683ec3eeaad8f, type: 3}
-  m_PrefabInstance: {fileID: 8833221387324764990}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &7668826654467196173 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1222952952695666227, guid: 84ef24b12de9e9c49b2683ec3eeaad8f, type: 3}
   m_PrefabInstance: {fileID: 8833221387324764990}
   m_PrefabAsset: {fileID: 0}

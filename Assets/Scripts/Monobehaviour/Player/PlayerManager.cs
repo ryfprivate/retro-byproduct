@@ -45,10 +45,7 @@ public class PlayerManager : Character
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         aimVector = mousePosition - transform.position;
         float rotationZ = Mathf.Atan2(aimVector.y, aimVector.x) * Mathf.Rad2Deg + 90;
-        aimTransform.rotation = Quaternion.Euler(0, 0, rotationZ);
-        // aimVector = mousePosition;
-        // float angle = Vector3.SignedAngle(new Vector2(0, -1), aimVector, Vector3.forward);
-        // aimTransform.rotation = Quaternion.Euler(aimVector);
+        aimObject.transform.rotation = Quaternion.Euler(0, 0, rotationZ);
 
         Upgrade();
     }
@@ -81,7 +78,7 @@ public class PlayerManager : Character
     {
         if (!canAttack) return;
 
-        animator.SetTrigger("Attack");
+        currentGraphics.GetComponent<Animator>().SetTrigger("Attack");
 
         GameObject arrow = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         arrow.GetComponent<Bullet>().SetParent(gameObject);

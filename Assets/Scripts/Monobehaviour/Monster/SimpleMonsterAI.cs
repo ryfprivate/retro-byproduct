@@ -126,11 +126,11 @@ public class SimpleMonsterAI : MonoBehaviour
 
         float attackRange = 1f;
         if (Vector3.Distance(transform.position, PlayerManager.Instance.transform.position) < attackRange)
-        {
-            MonsterMain.animator.SetTrigger("Attack");
+        { 
+            MonsterMain.currentGraphics.GetComponent<Animator>().SetTrigger("Attack");
             MonsterMain.aimVector = direction;
             float angle = Vector3.SignedAngle(new Vector2(0, -1), MonsterMain.aimVector, Vector3.forward);
-            MonsterMain.aimTransform.rotation = Quaternion.Euler(0, 0, angle);
+            MonsterMain.aimObject.transform.rotation = Quaternion.Euler(0, 0, angle);
 
             GameObject punch = Instantiate(MonsterMain.punchPrefab, MonsterMain.firePoint.position, MonsterMain.firePoint.rotation);
             punch.GetComponent<Punch>().SetParent(gameObject);

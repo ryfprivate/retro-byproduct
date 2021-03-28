@@ -124,10 +124,10 @@ public class PirateAI : MonoBehaviour
         float attackRange = 10f;
         if (Vector3.Distance(transform.position, PlayerManager.Instance.transform.position) < attackRange)
         {
-            MonsterMain.animator.SetTrigger("Attack");
+            MonsterMain.currentGraphics.GetComponent<Animator>().SetTrigger("Attack");
             MonsterMain.aimVector = direction;
             float angle = Vector3.SignedAngle(new Vector2(0, -1), MonsterMain.aimVector, Vector3.forward);
-            MonsterMain.aimTransform.rotation = Quaternion.Euler(0, 0, angle);
+            MonsterMain.aimObject.transform.rotation = Quaternion.Euler(0, 0, angle);
 
             GameObject arrow = Instantiate(MonsterMain.bulletPrefab, MonsterMain.firePoint.position, MonsterMain.firePoint.rotation);
             arrow.GetComponent<Bullet>().SetParent(gameObject);
